@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f6f1e7;
+  --card: #fffdf8;
+  --ink: #2b2621;
+  --taupe: #7c6a52;
+  --terracotta: #8b4a3f;
+  --sage: #5c6b4f;
+  --line: rgba(43, 38, 33, 0.12);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-taupe: var(--taupe);
+  --color-terracotta: var(--terracotta);
+  --color-sage: var(--sage);
+  --color-line: var(--line);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body), sans-serif;
+  background-image: radial-gradient(circle at 15% 20%, rgba(139, 74, 63, 0.05), transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(92, 107, 79, 0.06), transparent 45%);
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.photo-slot {
+  border: 1.5px dashed rgba(43, 38, 33, 0.28);
+  border-radius: 14px;
+  background: repeating-linear-gradient(135deg, rgba(43, 38, 33, 0.03) 0 10px, transparent 10px 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  color: var(--taupe);
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
