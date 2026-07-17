@@ -50,7 +50,12 @@ export function CrystalDrift() {
     let ticking = false;
     function update() {
       ticking = false;
-      const scrollY = window.scrollY;
+      // iOS Safari lässt scrollY beim elastischen Overscroll/Bounce über die
+      // gültigen Grenzen hinauslaufen (auch negativ, oder über die maximale
+      // Scroll-Position hinaus) — genau in diesem Moment (Ziehen/Loslassen)
+      // sprang unsere Modulo-Berechnung sichtbar. Deshalb hart clampen.
+      const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+      const scrollY = Math.max(0, Math.min(window.scrollY, maxScroll));
       for (const item of items) {
         const basePct = Number(item.dataset.topPct);
         const start = Number(item.dataset.rotateStart);
