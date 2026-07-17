@@ -1,15 +1,14 @@
 import Image from "next/image";
-import { Check } from "lucide-react";
 import { asset } from "@/lib/assets";
 import { CHECKOUT_URL } from "@/lib/checkout";
 
 const checklist = [
-  "Doppelter Wert der Kristalle im Vergleich zum Einzelkauf",
-  "Automatische Teilnahme an der monatlichen Gewinnspielverlosung",
-  "Monatliches Guthaben für den Shop",
-  "Exklusiver Zugang zur WhatsApp-Community",
-  "Jederzeit kündbar — keine Mindestlaufzeit",
-  "14 Tage Bedenkzeit — völlig risikolos",
+  { text: "Doppelter Wert der Kristalle im Vergleich zum Einzelkauf", image: asset("/images/crystals/amethyst.png") },
+  { text: "Automatische Teilnahme an der monatlichen Gewinnspielverlosung", image: asset("/images/crystals/labradorit.png") },
+  { text: "Monatliches Guthaben für den Shop", image: asset("/images/crystals/rubin.png") },
+  { text: "Exklusiver Zugang zur WhatsApp-Community", image: asset("/images/crystals/tuerkiser-kristall.png") },
+  { text: "Jederzeit kündbar — keine Mindestlaufzeit", image: asset("/images/crystals/zitrin.png") },
+  { text: "14 Tage Bedenkzeit — völlig risikolos", image: asset("/images/crystals/aquamarin.png") },
 ];
 
 export function AboHero() {
@@ -53,9 +52,11 @@ export function AboHero() {
 
           <ul className="flex flex-col gap-3 text-left mb-8">
             {checklist.map((item) => (
-              <li key={item} className="flex gap-3 items-start text-sm text-ink">
-                <Check className="h-5 w-5 flex-shrink-0 text-terracotta" strokeWidth={2.5} />
-                {item}
+              <li key={item.text} className="flex gap-3 items-center text-sm text-ink">
+                <span className="relative w-9 h-9 flex-shrink-0 rounded-full bg-bg border border-line overflow-hidden">
+                  <Image src={item.image} alt="" fill className="object-contain p-1.5" sizes="36px" />
+                </span>
+                {item.text}
               </li>
             ))}
           </ul>
