@@ -5,7 +5,6 @@ import { AboHero } from "@/components/abo/AboHero";
 import { HowItWorks } from "@/components/abo/HowItWorks";
 import { WhyOneEuro } from "@/components/abo/WhyOneEuro";
 import { PackageContents } from "@/components/abo/PackageContents";
-import { TrustBadges } from "@/components/abo/TrustBadges";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/FinalCta";
 import { StickyCheckoutBar } from "@/components/abo/StickyCheckoutBar";
@@ -26,7 +25,6 @@ export default function AboPage() {
         <HowItWorks />
         <WhyOneEuro />
         <PackageContents />
-        <TrustBadges />
         <Faq />
       </main>
       <Footer />
