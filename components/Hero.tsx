@@ -13,13 +13,13 @@ export function Hero() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <header className="w-full pt-8 pb-4 px-4 md:px-6">
+    <header className="w-full pt-3 md:pt-8 pb-4 px-4 md:px-6">
       <div
         className="w-full max-w-7xl mx-auto relative"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="relative overflow-hidden rounded-[40px] border border-line bg-card min-h-[600px] md:min-h-[680px] flex flex-col items-center justify-center text-center px-6 pt-24 pb-16 duration-500">
+        <div className="relative overflow-hidden rounded-[40px] border border-line bg-card min-h-[600px] md:min-h-[680px] flex flex-col items-center justify-center text-center px-6 pt-10 md:pt-24 pb-16 duration-500">
           <Suspense fallback={<div className="absolute inset-0 bg-bg/40" />}>
             <div className="absolute inset-0 z-0 pointer-events-none opacity-50 mix-blend-multiply">
               <Dithering
