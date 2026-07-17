@@ -78,10 +78,13 @@ body {
 
 @keyframes crystal-spin {
   from {
-    transform: rotate(var(--rotate-start));
+    transform: translateY(0) rotate(var(--rotate-start));
   }
   to {
-    transform: rotate(var(--rotate-end));
+    /* zusätzlicher Eigenauftrieb nach oben, obendrauf auf das normale
+       Mitscrollen, damit die Kristalle sichtbar eigenständig "schweben"
+       statt nur wie normaler Seiteninhalt vorbeizuziehen */
+    transform: translateY(-40vh) rotate(var(--rotate-end));
   }
 }
 

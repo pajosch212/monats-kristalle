@@ -17,21 +17,24 @@ const crystals = [
   { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, size: 85, rotateStart: 10, rotateEnd: -344 },
 ];
 
-// Jeder Kristall steht an einer festen Stelle im Dokument (48vh Abstand
-// zueinander, also ~2 gleichzeitig im Bild bei ~90vh Viewport) und dreht
-// sich rein über CSS scroll(root) — reines CSS, kein JS-Scroll-Handler.
-// Grund: auf Mobile läuft natives Scrollen auf einem eigenen Compositor-
-// Thread getrennt vom JS-Thread, wodurch jede JS-basierte Positions-
-// berechnung dem echten Scrollen leicht hinterherhinkt und beim Stoppen
-// sichtbar "nachschnappt". CSS scroll-timelines laufen selbst auf dem
-// Compositor-Thread und haben dieses Problem nicht.
-const STEP_VH = 48;
+// Jeder Kristall steht an einer festen Stelle im Dokument (28vh Abstand
+// zueinander, also ~3-4 gleichzeitig im Bild bei ~90vh Viewport) und
+// dreht + hebt sich zusätzlich per CSS scroll(root) — reines CSS, kein
+// JS-Scroll-Handler. Grund: auf Mobile läuft natives Scrollen auf einem
+// eigenen Compositor-Thread getrennt vom JS-Thread, wodurch jede
+// JS-basierte Positionsberechnung dem echten Scrollen leicht hinterher-
+// hinkt und beim Stoppen sichtbar "nachschnappt". CSS scroll-timelines
+// laufen selbst auf dem Compositor-Thread und haben dieses Problem nicht.
+const STEP_VH = 28;
+// Erster Kristall etwas unterhalb vom Dokumentanfang, damit er nicht
+// direkt am oberen Rand abgeschnitten wirkt.
+const START_VH = 10;
 
 export function CrystalDrift() {
   return (
     <div
       className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40"
-      style={{ height: `${crystals.length * STEP_VH}vh` }}
+      style={{ height: `${START_VH + crystals.length * STEP_VH}vh` }}
       aria-hidden="true"
     >
       {crystals.map((c, i) => (
@@ -40,7 +43,7 @@ export function CrystalDrift() {
           className="crystal-float absolute opacity-90"
           style={
             {
-              top: `${i * STEP_VH}vh`,
+              top: `${START_VH + i * STEP_VH}vh`,
               [c.side]: "2%",
               width: c.size,
               height: c.size,
