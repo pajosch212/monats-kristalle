@@ -68,5 +68,6 @@ body {
    normalen Scrollen "hoch") und drehen sich dabei kontinuierlich weiter,
    gekoppelt an den Scrollfortschritt der ganzen Seite (siehe CrystalDrift.tsx). */
 .crystal-float {
-  will-change: transform;
+  will-change: transform, opacity;
+  transition: opacity 0.3s ease-out;
 }

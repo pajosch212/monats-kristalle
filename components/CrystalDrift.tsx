@@ -34,6 +34,12 @@ export function CrystalDrift() {
     if (!el) return;
     const items = Array.from(el.querySelectorAll<HTMLElement>(".crystal-float"));
 
+    // Anteil von LOOP_PCT, der am oberen/unteren Rand zum Ein-/Ausblenden
+    // genutzt wird — der harte Sprung beim Loop passiert dann, während der
+    // Kristall unsichtbar ist, statt sichtbar zu "teleportieren".
+    const FADE_ZONE = 10;
+    const MAX_OPACITY = 0.9;
+
     let ticking = false;
     function update() {
       ticking = false;
@@ -48,8 +54,13 @@ export function CrystalDrift() {
         const driftPct = ((basePct - scrollY / vh * 0.6) % LOOP_PCT + LOOP_PCT) % LOOP_PCT;
         const angle = start + (end - start) * ((scrollY / vh) % 360) / 360;
 
+        // Nahe den Rändern (kurz vor dem Loop-Sprung) ausblenden.
+        const distToEdge = Math.min(driftPct, LOOP_PCT - driftPct);
+        const opacity = MAX_OPACITY * Math.min(1, distToEdge / FADE_ZONE);
+
         item.style.top = `${driftPct}%`;
         item.style.transform = `rotate(${angle}deg)`;
+        item.style.opacity = String(opacity);
       }
     }
     function onScroll() {
@@ -72,7 +83,7 @@ export function CrystalDrift() {
       {crystals.map((c) => (
         <div
           key={c.src}
-          className="crystal-float absolute opacity-90"
+          className="crystal-float absolute"
           data-top-pct={c.topPct}
           data-rotate-start={c.rotateStart}
           data-rotate-end={c.rotateEnd}
@@ -82,6 +93,7 @@ export function CrystalDrift() {
             width: c.size,
             height: c.size,
             transform: `rotate(${c.rotateStart}deg)`,
+            opacity: 0.9,
           }}
         >
           <Image src={c.src} alt="" fill className="object-contain drop-shadow-xl" sizes="100px" />
