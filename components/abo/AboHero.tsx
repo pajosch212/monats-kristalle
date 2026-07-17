@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { asset } from "@/lib/assets";
 import { CHECKOUT_URL } from "@/lib/checkout";
+import { GiftSelector } from "@/components/abo/GiftSelector";
 
 const checklist = [
   { text: "Doppelter Wert der Kristalle im Vergleich zum Einzelkauf", image: asset("/images/crystals/amethyst.png") },
@@ -50,16 +51,18 @@ export function AboHero() {
             erster Monat · danach 24,99€/Monat + 4,95€ Versand · jederzeit kündbar
           </p>
 
-          <ul className="flex flex-col gap-3 text-left mb-8">
+          <ul className="flex flex-col gap-4 text-left mb-8">
             {checklist.map((item) => (
-              <li key={item.text} className="flex gap-3 items-center text-sm text-ink">
-                <span className="relative w-9 h-9 flex-shrink-0 rounded-full bg-bg border border-line overflow-hidden">
-                  <Image src={item.image} alt="" fill className="object-contain p-1.5" sizes="36px" />
+              <li key={item.text} className="flex gap-4 items-center text-sm text-ink">
+                <span className="relative w-14 h-14 flex-shrink-0 rounded-full bg-bg border border-line overflow-hidden">
+                  <Image src={item.image} alt="" fill className="object-contain p-2" sizes="56px" />
                 </span>
                 {item.text}
               </li>
             ))}
           </ul>
+
+          <GiftSelector />
 
           <a
             href={CHECKOUT_URL}
