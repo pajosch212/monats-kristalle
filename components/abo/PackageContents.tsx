@@ -2,11 +2,11 @@ import Image from "next/image";
 import { asset } from "@/lib/assets";
 
 const items = [
-  { src: asset("/images/crystals/amethyst.png"), label: "Amethyst" },
-  { src: asset("/images/crystals/karneol.png"), label: "Karneol" },
-  { src: asset("/images/crystals/kristallspitze.png"), label: "Kristallspitze" },
+  { src: asset("/images/crystals/krokoit.png"), label: "Krokoit" },
+  { src: asset("/images/crystals/rote-painite.png"), label: "Rote Painite" },
+  { src: asset("/images/crystals/kaemmererit.png"), label: "Kämmererit" },
   { src: asset("/images/crystals/labradorit.png"), label: "Labradorit" },
-  { src: asset("/images/crystals/zitrin.png"), label: "Zitrin" },
+  { src: asset("/images/crystals/aquamarin.png"), label: "Aquamarin" },
   { src: asset("/images/crystals/zoisit.png"), label: "Zoisit" },
 ];
 

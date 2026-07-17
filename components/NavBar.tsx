@@ -6,9 +6,6 @@ export function NavBar() {
           Monats<span className="text-terracotta">.</span>Kristalle
         </a>
         <ul className="hidden md:flex gap-9 list-none text-sm font-medium text-ink/75">
-          <li><a href="/monats-kristalle/#zyklus" className="hover:text-ink transition-opacity">Wie es funktioniert</a></li>
-          <li><a href="/monats-kristalle/#gruende" className="hover:text-ink transition-opacity">Warum wir</a></li>
-          <li><a href="/monats-kristalle/#auslosung" className="hover:text-ink transition-opacity">Auslosung</a></li>
           <li><a href="/monats-kristalle/abo/" className="hover:text-ink transition-opacity">Mitgliedschaft abschließen</a></li>
         </ul>
         <button

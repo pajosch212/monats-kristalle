@@ -15,6 +15,15 @@ const crystals = [
   { src: asset("/images/crystals/zoisit.png"), side: "left" as const, size: 95, rotateStart: 8, rotateEnd: -350 },
   { src: asset("/images/crystals/rare-crystal.png"), side: "right" as const, size: 80, rotateStart: -11, rotateEnd: 341 },
   { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, size: 85, rotateStart: 10, rotateEnd: -344 },
+  { src: asset("/images/crystals/krokoit.png"), side: "right" as const, size: 90, rotateStart: -13, rotateEnd: 347 },
+  { src: asset("/images/crystals/rote-painite.png"), side: "left" as const, size: 80, rotateStart: 11, rotateEnd: -336 },
+  { src: asset("/images/crystals/kaemmererit.png"), side: "right" as const, size: 85, rotateStart: -9, rotateEnd: 353 },
+  { src: asset("/images/crystals/blauer-saphir.png"), side: "left" as const, size: 90, rotateStart: 13, rotateEnd: -341 },
+  { src: asset("/images/crystals/andradit-granat.png"), side: "right" as const, size: 85, rotateStart: -14, rotateEnd: 349 },
+  { src: asset("/images/crystals/alunit.png"), side: "left" as const, size: 90, rotateStart: 9, rotateEnd: -352 },
+  { src: asset("/images/crystals/fluorit.png"), side: "right" as const, size: 95, rotateStart: -11, rotateEnd: 344 },
+  { src: asset("/images/crystals/proustit-rubinkristall.png"), side: "left" as const, size: 80, rotateStart: 12, rotateEnd: -339 },
+  { src: asset("/images/crystals/turmalin.png"), side: "right" as const, size: 85, rotateStart: -10, rotateEnd: 348 },
 ];
 
 // Jeder Kristall steht an einer festen Stelle im Dokument (28vh Abstand
