@@ -5,24 +5,25 @@ import { useEffect, useRef } from "react";
 import { asset } from "@/lib/assets";
 
 const crystals = [
-  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, top: "2%", size: 90, rotateStart: -8, rotateEnd: 700 },
-  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, top: "6%", size: 100, rotateStart: 10, rotateEnd: -660 },
-  { src: asset("/images/crystals/rubin.png"), side: "left" as const, top: "13%", size: 85, rotateStart: -12, rotateEnd: 640 },
-  { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, top: "18%", size: 85, rotateStart: -15, rotateEnd: 690 },
-  { src: asset("/images/crystals/tuerkiser-kristall.png"), side: "left" as const, top: "26%", size: 95, rotateStart: 9, rotateEnd: -670 },
-  { src: asset("/images/crystals/zitrin.png"), side: "right" as const, top: "32%", size: 80, rotateStart: 12, rotateEnd: -650 },
-  { src: asset("/images/crystals/aquamarin.png"), side: "left" as const, top: "40%", size: 90, rotateStart: -10, rotateEnd: 680 },
-  { src: asset("/images/crystals/karneol.png"), side: "right" as const, top: "48%", size: 90, rotateStart: -10, rotateEnd: 710 },
-  { src: asset("/images/crystals/quadratischer-stein.png"), side: "left" as const, top: "58%", size: 85, rotateStart: 14, rotateEnd: -690 },
-  { src: asset("/images/crystals/roter-stein.png"), side: "right" as const, top: "66%", size: 90, rotateStart: -9, rotateEnd: 660 },
-  { src: asset("/images/crystals/zoisit.png"), side: "left" as const, top: "76%", size: 95, rotateStart: 8, rotateEnd: -700 },
-  { src: asset("/images/crystals/rare-crystal.png"), side: "right" as const, top: "84%", size: 80, rotateStart: -11, rotateEnd: 640 },
-  { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, top: "92%", size: 85, rotateStart: 10, rotateEnd: -670 },
+  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, topPct: 4, size: 90, rotateStart: -8, rotateEnd: 340 },
+  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, topPct: 12, size: 100, rotateStart: 10, rotateEnd: -330 },
+  { src: asset("/images/crystals/rubin.png"), side: "left" as const, topPct: 26, size: 85, rotateStart: -12, rotateEnd: 348 },
+  { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, topPct: 38, size: 85, rotateStart: -15, rotateEnd: 350 },
+  { src: asset("/images/crystals/tuerkiser-kristall.png"), side: "left" as const, topPct: 50, size: 95, rotateStart: 9, rotateEnd: -338 },
+  { src: asset("/images/crystals/zitrin.png"), side: "right" as const, topPct: 62, size: 80, rotateStart: 12, rotateEnd: -345 },
+  { src: asset("/images/crystals/aquamarin.png"), side: "left" as const, topPct: 74, size: 90, rotateStart: -10, rotateEnd: 342 },
+  { src: asset("/images/crystals/karneol.png"), side: "right" as const, topPct: 86, size: 90, rotateStart: -10, rotateEnd: 355 },
+  { src: asset("/images/crystals/quadratischer-stein.png"), side: "left" as const, topPct: 98, size: 85, rotateStart: 14, rotateEnd: -352 },
+  { src: asset("/images/crystals/roter-stein.png"), side: "right" as const, topPct: 110, size: 90, rotateStart: -9, rotateEnd: 346 },
+  { src: asset("/images/crystals/zoisit.png"), side: "left" as const, topPct: 122, size: 95, rotateStart: 8, rotateEnd: -350 },
+  { src: asset("/images/crystals/rare-crystal.png"), side: "right" as const, topPct: 134, size: 80, rotateStart: -11, rotateEnd: 341 },
+  { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, topPct: 146, size: 85, rotateStart: 10, rotateEnd: -344 },
 ];
 
-// Kristalle über 180% der Fensterhöhe gestaffelt: beim Landen sind die ersten
-// ~7 direkt sichtbar, der Rest kommt beim Scrollen nach; alle drehen sich weiter mit.
-const SPREAD_VH = 180;
+// Kristalle sind auf 150% der Fensterhöhe verteilt (also ~7 gleichzeitig im
+// Bild), driften beim Scrollen nach oben und loopen von unten wieder rein,
+// während sie sich weiter drehen.
+const LOOP_PCT = 150;
 
 export function CrystalDrift() {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,12 +37,18 @@ export function CrystalDrift() {
     let ticking = false;
     function update() {
       ticking = false;
-      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+      const vh = window.innerHeight / 100;
+      const scrollY = window.scrollY;
       for (const item of items) {
+        const basePct = Number(item.dataset.topPct);
         const start = Number(item.dataset.rotateStart);
         const end = Number(item.dataset.rotateEnd);
-        const angle = start + (end - start) * progress;
+
+        // Position driftet mit dem Scrollen nach oben und loopt innerhalb von LOOP_PCT.
+        const driftPct = ((basePct - scrollY / vh * 0.6) % LOOP_PCT + LOOP_PCT) % LOOP_PCT;
+        const angle = start + (end - start) * ((scrollY / vh) % 360) / 360;
+
+        item.style.top = `${driftPct}%`;
         item.style.transform = `rotate(${angle}deg)`;
       }
     }
@@ -61,20 +68,16 @@ export function CrystalDrift() {
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40 overflow-hidden"
-      style={{ height: `${SPREAD_VH}vh` }}
-      aria-hidden="true"
-    >
+    <div ref={ref} className="crystal-drift pointer-events-none fixed inset-0 z-40 overflow-hidden" aria-hidden="true">
       {crystals.map((c) => (
         <div
           key={c.src}
           className="crystal-float absolute opacity-90"
+          data-top-pct={c.topPct}
           data-rotate-start={c.rotateStart}
           data-rotate-end={c.rotateEnd}
           style={{
-            top: c.top,
+            top: `${c.topPct}%`,
             [c.side]: "2%",
             width: c.size,
             height: c.size,

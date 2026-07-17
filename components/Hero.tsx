@@ -44,13 +44,13 @@ export function Hero() {
             </div>
 
             <h1 className="font-display font-light text-5xl md:text-7xl lg:text-[5.2rem] tracking-tight text-ink mb-7 leading-[1.04]">
-              Jeden Monat neue <br />
-              <em className="italic font-medium text-terracotta">Kristalle</em> ziehen bei dir ein
+              Jeden Monat ziehen neue <br />
+              <em className="italic font-medium text-terracotta">Kristalle</em> bei dir ein
             </h1>
 
             <p className="text-taupe text-lg md:text-xl max-w-xl mb-9 leading-relaxed">
-              Ein handverlesenes Paket mit mehreren Kristallen, kleinen Ritualen und besonderen Extras —
-              automatisch jeden Monat an deiner Tür.
+              Dein handverlesenes Paket mit mehreren Kristallen & besonderen Extras —
+              automatisch jeden Monat in deinem Briefkasten.
             </p>
 
             <div className="relative w-full max-w-xl aspect-square rounded-3xl overflow-hidden shadow-xl shadow-ink/15 mb-9 border border-line">
