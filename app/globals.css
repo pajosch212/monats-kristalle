@@ -64,30 +64,36 @@ body {
   }
 }
 
-/* Kristalle: von Anfang an sichtbar, drehen & wandern hoch je mehr gescrollt wird */
+/* Kristalle stehen an fester Stelle im Dokument (wandern also mit dem
+   normalen Scrollen "hoch") und drehen sich dabei, sobald sie den
+   Viewport durchqueren — jeder Kristall animiert nur in seinem eigenen
+   Sichtbarkeitsfenster, dadurch bleiben immer nur wenige gleichzeitig sichtbar. */
 .crystal-float {
   animation: crystal-rise linear;
-  animation-timeline: scroll(root);
-  animation-range: 0% 70%;
+  animation-timeline: view();
+  animation-range: cover 0% cover 100%;
   will-change: transform, opacity;
 }
 
 @keyframes crystal-rise {
   0% {
-    transform: translateY(0) rotate(var(--rotate-start));
+    transform: rotate(var(--rotate-start));
+    opacity: 0;
+  }
+  15% {
     opacity: 0.9;
   }
   85% {
     opacity: 0.9;
   }
   100% {
-    transform: translateY(-120vh) rotate(var(--rotate-end));
+    transform: rotate(var(--rotate-end));
     opacity: 0;
   }
 }
 
-/* Browser ohne scroll() Timeline (z.B. Safari < 26): Deko einfach ausblenden statt kaputt zu zeigen */
-@supports not (animation-timeline: scroll()) {
+/* Browser ohne view() Timeline (z.B. Safari < 26): Deko einfach ausblenden statt kaputt zu zeigen */
+@supports not (animation-timeline: view()) {
   .crystal-drift {
     display: none;
   }

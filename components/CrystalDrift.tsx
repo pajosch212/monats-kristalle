@@ -17,22 +17,29 @@ const crystals = [
   { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, top: "94%", size: 85, rotateStart: 10, rotateEnd: -344 },
 ];
 
+// Kristalle verteilen sich über das 3-fache der Fensterhöhe, statt alle
+// gleichzeitig in einem Viewport zu stapeln — so sind immer nur ~6 auf einmal sichtbar.
+const SPREAD_VH = 400;
+
 export function CrystalDrift() {
   return (
-    <div className="crystal-drift pointer-events-none fixed inset-0 z-40 overflow-hidden" aria-hidden="true">
+    <div
+      className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40 overflow-hidden"
+      style={{ height: `${SPREAD_VH}vh` }}
+      aria-hidden="true"
+    >
       {crystals.map((c, i) => (
         <div
           key={c.src}
           className="crystal-float absolute opacity-90"
           style={
             {
-              top: c.top,
+              top: `${(i / crystals.length) * SPREAD_VH}vh`,
               [c.side]: "2%",
               width: c.size,
               height: c.size,
               "--rotate-start": `${c.rotateStart}deg`,
               "--rotate-end": `${c.rotateEnd}deg`,
-              animationDelay: `${i * -1.3}s`,
             } as React.CSSProperties
           }
         >
