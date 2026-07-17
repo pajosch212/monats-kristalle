@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { NavBar } from "@/components/NavBar";
+import { CrystalDrift } from "@/components/CrystalDrift";
 import { AboHero } from "@/components/abo/AboHero";
 import { HowItWorks } from "@/components/abo/HowItWorks";
 import { PackageContents } from "@/components/abo/PackageContents";
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function AboPage() {
   return (
     <>
+      <CrystalDrift />
       <NavBar />
       <main className="flex-1 pb-20">
         <AboHero />
