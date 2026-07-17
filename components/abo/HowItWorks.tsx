@@ -7,12 +7,12 @@ const steps = [
   {
     number: "2",
     title: "Paket erhalten & testen",
-    text: "Dein Paket erreicht dich per Post. 14 Tage Zeit, in Ruhe zu entscheiden.",
+    text: "Dein Paket wird per Post in deinen Briefkasten zugestellt — du musst dafür nicht zu Hause sein. 14 Tage Zeit, in Ruhe zu entscheiden.",
   },
   {
     number: "3",
     title: "Jeden Monat neu erleben",
-    text: "Ab Monat 2 zu 24,99€ + Versand — jederzeit monatlich kündbar.",
+    text: "Ab dem zweiten Monat 24,99€ + Versand — jederzeit monatlich kündbar.",
   },
 ];
 
@@ -25,7 +25,7 @@ export function HowItWorks() {
             So einfach geht&apos;s
           </div>
           <h2 className="font-display font-light text-3xl md:text-4xl text-ink leading-tight">
-            Dein Weg zum ersten <em className="italic font-medium text-terracotta">Kraftstein</em>
+            Dein <em className="italic font-medium text-terracotta">Kristallpaket</em> in wenigen Tagen im Briefkasten
           </h2>
         </div>
 

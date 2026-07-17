@@ -4,10 +4,12 @@ import { CHECKOUT_URL } from "@/lib/checkout";
 import { GiftSelector } from "@/components/abo/GiftSelector";
 
 const checklist = [
+  { text: "1€ erster Monat, danach 24,99€", image: asset("/images/crystals/rote-painite.png") },
   { text: "Doppelter Wert der Kristalle im Vergleich zum Einzelkauf", image: asset("/images/crystals/amethyst.png") },
   { text: "Automatische Teilnahme an der monatlichen Gewinnspielverlosung", image: asset("/images/crystals/labradorit.png") },
   { text: "Monatliches Guthaben für den Shop", image: asset("/images/crystals/rubin.png") },
-  { text: "Exklusiver Zugang zur WhatsApp-Community", image: asset("/images/crystals/tuerkiser-kristall.png") },
+  { text: "Geliefert in den Briefkasten — du musst nicht zu Hause sein", image: asset("/images/crystals/krokoit.png") },
+  { text: "Exklusiver Zugang zu Sonderangeboten und zur WhatsApp-Community", image: asset("/images/crystals/tuerkiser-kristall.png") },
   { text: "Jederzeit kündbar — keine Mindestlaufzeit", image: asset("/images/crystals/zitrin.png") },
   { text: "14 Tage Bedenkzeit — völlig risikolos", image: asset("/images/crystals/aquamarin.png") },
 ];
