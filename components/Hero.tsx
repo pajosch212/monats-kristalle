@@ -24,7 +24,7 @@ export function Hero() {
             <div className="absolute inset-0 z-0 pointer-events-none opacity-50 mix-blend-multiply">
               <Dithering
                 colorBack="#00000000"
-                colorFront="#8B4A3F"
+                colorFront="#7A1F2B"
                 shape="warp"
                 type="4x4"
                 speed={isHovered ? 0.6 : 0.2}
