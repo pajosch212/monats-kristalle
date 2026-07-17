@@ -53,12 +53,12 @@ export function Hero() {
               automatisch jeden Monat an deiner Tür.
             </p>
 
-            <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-xl shadow-ink/15 mb-9 border border-line">
+            <div className="relative w-full max-w-xl aspect-square rounded-3xl overflow-hidden shadow-xl shadow-ink/15 mb-9 border border-line">
               <Image
                 src={asset("/images/spiritual-objects.jpeg")}
                 alt="Spirituelle Objekte und Kristalle"
                 fill
-                sizes="192px"
+                sizes="(min-width: 768px) 36rem, 90vw"
                 className="object-cover"
               />
             </div>
