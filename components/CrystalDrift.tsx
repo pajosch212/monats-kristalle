@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { asset } from "@/lib/assets";
 
 const crystals = [
@@ -22,8 +25,44 @@ const crystals = [
 const SPREAD_VH = 180;
 
 export function CrystalDrift() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = ref.current;
+    if (!el) return;
+    const items = Array.from(el.querySelectorAll<HTMLElement>(".crystal-float"));
+
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+      for (const item of items) {
+        const start = Number(item.dataset.rotateStart);
+        const end = Number(item.dataset.rotateEnd);
+        const angle = start + (end - start) * progress;
+        item.style.transform = `rotate(${angle}deg)`;
+      }
+    }
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
     <div
+      ref={ref}
       className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40 overflow-hidden"
       style={{ height: `${SPREAD_VH}vh` }}
       aria-hidden="true"
@@ -32,16 +71,15 @@ export function CrystalDrift() {
         <div
           key={c.src}
           className="crystal-float absolute opacity-90"
-          style={
-            {
-              top: c.top,
-              [c.side]: "2%",
-              width: c.size,
-              height: c.size,
-              "--rotate-start": `${c.rotateStart}deg`,
-              "--rotate-end": `${c.rotateEnd}deg`,
-            } as React.CSSProperties
-          }
+          data-rotate-start={c.rotateStart}
+          data-rotate-end={c.rotateEnd}
+          style={{
+            top: c.top,
+            [c.side]: "2%",
+            width: c.size,
+            height: c.size,
+            transform: `rotate(${c.rotateStart}deg)`,
+          }}
         >
           <Image src={c.src} alt="" fill className="object-contain drop-shadow-xl" sizes="100px" />
         </div>

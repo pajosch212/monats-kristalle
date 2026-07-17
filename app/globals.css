@@ -66,28 +66,7 @@ body {
 
 /* Kristalle stehen an fester Stelle im Dokument (wandern also mit dem
    normalen Scrollen "hoch") und drehen sich dabei kontinuierlich weiter,
-   gekoppelt an den Scrollfortschritt der ganzen Seite. */
+   gekoppelt an den Scrollfortschritt der ganzen Seite (siehe CrystalDrift.tsx). */
 .crystal-float {
-  animation: crystal-rise linear;
-  animation-timeline: scroll(root);
-  animation-range: 0% 100%;
-  will-change: transform, opacity;
-}
-
-@keyframes crystal-rise {
-  0% {
-    transform: rotate(var(--rotate-start));
-    opacity: 0.9;
-  }
-  100% {
-    transform: rotate(var(--rotate-end));
-    opacity: 0.9;
-  }
-}
-
-/* Browser ohne scroll() Timeline (z.B. Safari < 26): Deko einfach ausblenden statt kaputt zu zeigen */
-@supports not (animation-timeline: scroll()) {
-  .crystal-drift {
-    display: none;
-  }
+  will-change: transform;
 }
