@@ -65,9 +65,31 @@ body {
 }
 
 /* Kristalle stehen an fester Stelle im Dokument (wandern also mit dem
-   normalen Scrollen "hoch") und drehen sich dabei kontinuierlich weiter,
-   gekoppelt an den Scrollfortschritt der ganzen Seite (siehe CrystalDrift.tsx). */
+   normalen Scrollen "hoch", ganz ohne JS) und drehen sich dabei über eine
+   native CSS scroll-Timeline weiter — läuft auf dem Compositor-Thread,
+   dadurch kein Hinterherhinken/Nachschnappen wie bei JS-Scroll-Handlern
+   auf Mobile (siehe CrystalDrift.tsx für die Begründung). */
 .crystal-float {
-  will-change: transform, opacity;
-  transition: opacity 0.3s ease-out;
+  animation: crystal-spin linear;
+  animation-timeline: scroll(root);
+  animation-range: 0% 100%;
+  will-change: transform;
+}
+
+@keyframes crystal-spin {
+  from {
+    transform: rotate(var(--rotate-start));
+  }
+  to {
+    transform: rotate(var(--rotate-end));
+  }
+}
+
+/* Browser ohne scroll()-Timeline (z.B. ältere Safari): Kristalle bleiben
+   einfach an ihrer Stelle stehen, ohne kaputte/statische Rotation zu zeigen. */
+@supports not (animation-timeline: scroll()) {
+  .crystal-float {
+    animation: none;
+    transform: rotate(var(--rotate-start));
+  }
 }

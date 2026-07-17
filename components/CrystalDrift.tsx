@@ -1,125 +1,53 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 import { asset } from "@/lib/assets";
 
 const crystals = [
-  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, topPct: 8, size: 90, rotateStart: -8, rotateEnd: 340 },
-  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, topPct: 24, size: 100, rotateStart: 10, rotateEnd: -330 },
-  { src: asset("/images/crystals/rubin.png"), side: "left" as const, topPct: 52, size: 85, rotateStart: -12, rotateEnd: 348 },
-  { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, topPct: 76, size: 85, rotateStart: -15, rotateEnd: 350 },
-  { src: asset("/images/crystals/tuerkiser-kristall.png"), side: "left" as const, topPct: 100, size: 95, rotateStart: 9, rotateEnd: -338 },
-  { src: asset("/images/crystals/zitrin.png"), side: "right" as const, topPct: 124, size: 80, rotateStart: 12, rotateEnd: -345 },
-  { src: asset("/images/crystals/aquamarin.png"), side: "left" as const, topPct: 148, size: 90, rotateStart: -10, rotateEnd: 342 },
-  { src: asset("/images/crystals/karneol.png"), side: "right" as const, topPct: 172, size: 90, rotateStart: -10, rotateEnd: 355 },
-  { src: asset("/images/crystals/quadratischer-stein.png"), side: "left" as const, topPct: 196, size: 85, rotateStart: 14, rotateEnd: -352 },
-  { src: asset("/images/crystals/roter-stein.png"), side: "right" as const, topPct: 220, size: 90, rotateStart: -9, rotateEnd: 346 },
-  { src: asset("/images/crystals/zoisit.png"), side: "left" as const, topPct: 244, size: 95, rotateStart: 8, rotateEnd: -350 },
-  { src: asset("/images/crystals/rare-crystal.png"), side: "right" as const, topPct: 268, size: 80, rotateStart: -11, rotateEnd: 341 },
-  { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, topPct: 288, size: 85, rotateStart: 10, rotateEnd: -344 },
+  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, size: 90, rotateStart: -8, rotateEnd: 340 },
+  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, size: 100, rotateStart: 10, rotateEnd: -330 },
+  { src: asset("/images/crystals/rubin.png"), side: "left" as const, size: 85, rotateStart: -12, rotateEnd: 348 },
+  { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, size: 85, rotateStart: -15, rotateEnd: 350 },
+  { src: asset("/images/crystals/tuerkiser-kristall.png"), side: "left" as const, size: 95, rotateStart: 9, rotateEnd: -338 },
+  { src: asset("/images/crystals/zitrin.png"), side: "right" as const, size: 80, rotateStart: 12, rotateEnd: -345 },
+  { src: asset("/images/crystals/aquamarin.png"), side: "left" as const, size: 90, rotateStart: -10, rotateEnd: 342 },
+  { src: asset("/images/crystals/karneol.png"), side: "right" as const, size: 90, rotateStart: -10, rotateEnd: 355 },
+  { src: asset("/images/crystals/quadratischer-stein.png"), side: "left" as const, size: 85, rotateStart: 14, rotateEnd: -352 },
+  { src: asset("/images/crystals/roter-stein.png"), side: "right" as const, size: 90, rotateStart: -9, rotateEnd: 346 },
+  { src: asset("/images/crystals/zoisit.png"), side: "left" as const, size: 95, rotateStart: 8, rotateEnd: -350 },
+  { src: asset("/images/crystals/rare-crystal.png"), side: "right" as const, size: 80, rotateStart: -11, rotateEnd: 341 },
+  { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, size: 85, rotateStart: 10, rotateEnd: -344 },
 ];
 
-// Kristalle sind auf 300% der Fensterhöhe verteilt statt 150%, also sind
-// gleichzeitig nur noch ~3-4 im Bild statt ~7; driften beim Scrollen nach
-// oben und loopen von unten wieder rein, während sie sich weiter drehen.
-const LOOP_PCT = 300;
+// Jeder Kristall steht an einer festen Stelle im Dokument (48vh Abstand
+// zueinander, also ~2 gleichzeitig im Bild bei ~90vh Viewport) und dreht
+// sich rein über CSS scroll(root) — reines CSS, kein JS-Scroll-Handler.
+// Grund: auf Mobile läuft natives Scrollen auf einem eigenen Compositor-
+// Thread getrennt vom JS-Thread, wodurch jede JS-basierte Positions-
+// berechnung dem echten Scrollen leicht hinterherhinkt und beim Stoppen
+// sichtbar "nachschnappt". CSS scroll-timelines laufen selbst auf dem
+// Compositor-Thread und haben dieses Problem nicht.
+const STEP_VH = 48;
 
 export function CrystalDrift() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const el = ref.current;
-    if (!el) return;
-    const items = Array.from(el.querySelectorAll<HTMLElement>(".crystal-float"));
-
-    // Anteil von LOOP_PCT, der am oberen/unteren Rand zum Ein-/Ausblenden
-    // genutzt wird — der harte Sprung beim Loop passiert dann, während der
-    // Kristall unsichtbar ist, statt sichtbar zu "teleportieren".
-    const FADE_ZONE = 10;
-    const MAX_OPACITY = 0.9;
-
-    // vh wird NICHT bei jedem Scroll-Event neu ausgelesen: auf iOS/Android
-    // ändert sich window.innerHeight während des Scrollens laufend, weil die
-    // Adressleiste ein-/ausfährt (bei gleichbleibendem scrollY) — das erzeugt
-    // genau die "random" wirkenden Mini-Sprünge. Einmal beim Mount festlegen
-    // und nur bei einer echten Größenänderung (z.B. Rotation) aktualisieren.
-    let vh = window.innerHeight / 100;
-
-    let ticking = false;
-    function update() {
-      ticking = false;
-      // iOS Safari lässt scrollY beim elastischen Overscroll/Bounce über die
-      // gültigen Grenzen hinauslaufen (auch negativ, oder über die maximale
-      // Scroll-Position hinaus) — genau in diesem Moment (Ziehen/Loslassen)
-      // sprang unsere Modulo-Berechnung sichtbar. Deshalb hart clampen.
-      const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-      const scrollY = Math.max(0, Math.min(window.scrollY, maxScroll));
-      for (const item of items) {
-        const basePct = Number(item.dataset.topPct);
-        const start = Number(item.dataset.rotateStart);
-        const end = Number(item.dataset.rotateEnd);
-
-        // Position driftet mit dem Scrollen nach oben und loopt innerhalb von LOOP_PCT.
-        // Über translateY (Compositor, kein Reflow) statt top, damit bei
-        // schnellem Scrollen keine Frames/Sprünge sichtbar werden.
-        const driftPct = ((basePct - scrollY / vh * 0.6) % LOOP_PCT + LOOP_PCT) % LOOP_PCT;
-        const offsetPct = driftPct - basePct;
-        const angle = start + (end - start) * ((scrollY / vh) % 360) / 360;
-
-        // Nahe den Rändern (kurz vor dem Loop-Sprung) ausblenden.
-        const distToEdge = Math.min(driftPct, LOOP_PCT - driftPct);
-        const opacity = MAX_OPACITY * Math.min(1, distToEdge / FADE_ZONE);
-
-        item.style.transform = `translateY(${offsetPct}vh) rotate(${angle}deg)`;
-        item.style.opacity = String(opacity);
-      }
-    }
-    function onScroll() {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
-      }
-    }
-    let resizeTimer: ReturnType<typeof setTimeout>;
-    function onResize() {
-      // Nur auf echte Größenänderungen reagieren (Rotation, Fenster
-      // verändert), nicht auf die Mini-Resizes durch die iOS-Adressleiste —
-      // dafür kurz debouncen und den neuen Wert erst danach übernehmen.
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        vh = window.innerHeight / 100;
-        update();
-      }, 200);
-    }
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      clearTimeout(resizeTimer);
-    };
-  }, []);
-
   return (
-    <div ref={ref} className="crystal-drift pointer-events-none fixed inset-0 z-40 overflow-hidden" aria-hidden="true">
-      {crystals.map((c) => (
+    <div
+      className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40"
+      style={{ height: `${crystals.length * STEP_VH}vh` }}
+      aria-hidden="true"
+    >
+      {crystals.map((c, i) => (
         <div
           key={c.src}
-          className="crystal-float absolute"
-          data-top-pct={c.topPct}
-          data-rotate-start={c.rotateStart}
-          data-rotate-end={c.rotateEnd}
-          style={{
-            top: `${c.topPct}%`,
-            [c.side]: "2%",
-            width: c.size,
-            height: c.size,
-            transform: `rotate(${c.rotateStart}deg)`,
-            opacity: 0.9,
-          }}
+          className="crystal-float absolute opacity-90"
+          style={
+            {
+              top: `${i * STEP_VH}vh`,
+              [c.side]: "2%",
+              width: c.size,
+              height: c.size,
+              "--rotate-start": `${c.rotateStart}deg`,
+              "--rotate-end": `${c.rotateEnd}deg`,
+            } as React.CSSProperties
+          }
         >
           <Image src={c.src} alt="" fill className="object-contain drop-shadow-xl" sizes="100px" />
         </div>
