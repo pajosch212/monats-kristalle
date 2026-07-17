@@ -3,6 +3,7 @@ import { NavBar } from "@/components/NavBar";
 import { CrystalDrift } from "@/components/CrystalDrift";
 import { AboHero } from "@/components/abo/AboHero";
 import { HowItWorks } from "@/components/abo/HowItWorks";
+import { WhyOneEuro } from "@/components/abo/WhyOneEuro";
 import { PackageContents } from "@/components/abo/PackageContents";
 import { TrustBadges } from "@/components/abo/TrustBadges";
 import { Faq } from "@/components/Faq";
@@ -23,6 +24,7 @@ export default function AboPage() {
       <main className="flex-1 pb-20">
         <AboHero />
         <HowItWorks />
+        <WhyOneEuro />
         <PackageContents />
         <TrustBadges />
         <Faq />
