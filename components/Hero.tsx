@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useState, Suspense, lazy } from "react";
+import { asset } from "@/lib/assets";
 
 const Dithering = lazy(() =>
   import("@paper-design/shaders-react").then((mod) => ({ default: mod.Dithering }))
@@ -82,7 +83,7 @@ export function Hero() {
           <div className="relative h-[340px] md:h-[220px]">
             <div className="photo-slot absolute inset-0 md:inset-y-0 md:left-0 md:right-[30%] h-[55%] md:h-full -rotate-1 shadow-xl shadow-ink/10">
               <Image
-                src="/images/paket.jpeg"
+                src={asset("/images/paket.jpeg")}
                 alt="Monats-Kristalle Paket"
                 fill
                 sizes="(min-width: 768px) 40vw, 80vw"
@@ -92,7 +93,7 @@ export function Hero() {
             </div>
             <div className="photo-slot absolute left-0 bottom-0 w-[56%] h-[40%] md:left-auto md:right-[16%] md:w-[32%] md:h-[78%] md:bottom-0 rotate-2 bg-card shadow-lg shadow-ink/10">
               <Image
-                src="/images/kristalle.webp"
+                src={asset("/images/kristalle.webp")}
                 alt="Kristalle"
                 fill
                 sizes="(min-width: 768px) 25vw, 50vw"
@@ -101,7 +102,7 @@ export function Hero() {
             </div>
             <div className="photo-slot absolute right-0 bottom-0 w-[38%] h-[40%] md:bottom-auto md:top-0 md:right-0 md:w-[24%] md:h-[60%] rotate-3 bg-card shadow-lg shadow-ink/10">
               <Image
-                src="/images/detail.webp"
+                src={asset("/images/detail.webp")}
                 alt="Kristall Detail"
                 fill
                 sizes="(min-width: 768px) 20vw, 40vw"

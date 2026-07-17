@@ -1,12 +1,13 @@
 import Image from "next/image";
+import { asset } from "@/lib/assets";
 
 const crystals = [
-  { src: "/images/crystals/amethyst.png", side: "left" as const, top: "4%", size: 120, rotateStart: -8, rotateEnd: 25 },
-  { src: "/images/crystals/labradorit.png", side: "right" as const, top: "18%", size: 130, rotateStart: 10, rotateEnd: -20 },
-  { src: "/images/crystals/kristallspitze.png", side: "left" as const, top: "38%", size: 110, rotateStart: -15, rotateEnd: 15 },
-  { src: "/images/crystals/zitrin.png", side: "right" as const, top: "52%", size: 105, rotateStart: 12, rotateEnd: -18 },
-  { src: "/images/crystals/karneol.png", side: "left" as const, top: "68%", size: 115, rotateStart: -10, rotateEnd: 22 },
-  { src: "/images/crystals/zoisit.png", side: "right" as const, top: "82%", size: 120, rotateStart: 8, rotateEnd: -25 },
+  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, top: "4%", size: 120, rotateStart: -8, rotateEnd: 25 },
+  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, top: "18%", size: 130, rotateStart: 10, rotateEnd: -20 },
+  { src: asset("/images/crystals/kristallspitze.png"), side: "left" as const, top: "38%", size: 110, rotateStart: -15, rotateEnd: 15 },
+  { src: asset("/images/crystals/zitrin.png"), side: "right" as const, top: "52%", size: 105, rotateStart: 12, rotateEnd: -18 },
+  { src: asset("/images/crystals/karneol.png"), side: "left" as const, top: "68%", size: 115, rotateStart: -10, rotateEnd: 22 },
+  { src: asset("/images/crystals/zoisit.png"), side: "right" as const, top: "82%", size: 120, rotateStart: 8, rotateEnd: -25 },
 ];
 
 export function CrystalDrift() {
