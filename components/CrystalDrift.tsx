@@ -40,10 +40,16 @@ export function CrystalDrift() {
     const FADE_ZONE = 10;
     const MAX_OPACITY = 0.9;
 
+    // vh wird NICHT bei jedem Scroll-Event neu ausgelesen: auf iOS/Android
+    // ändert sich window.innerHeight während des Scrollens laufend, weil die
+    // Adressleiste ein-/ausfährt (bei gleichbleibendem scrollY) — das erzeugt
+    // genau die "random" wirkenden Mini-Sprünge. Einmal beim Mount festlegen
+    // und nur bei einer echten Größenänderung (z.B. Rotation) aktualisieren.
+    let vh = window.innerHeight / 100;
+
     let ticking = false;
     function update() {
       ticking = false;
-      const vh = window.innerHeight / 100;
       const scrollY = window.scrollY;
       for (const item of items) {
         const basePct = Number(item.dataset.topPct);
@@ -71,12 +77,24 @@ export function CrystalDrift() {
         requestAnimationFrame(update);
       }
     }
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    function onResize() {
+      // Nur auf echte Größenänderungen reagieren (Rotation, Fenster
+      // verändert), nicht auf die Mini-Resizes durch die iOS-Adressleiste —
+      // dafür kurz debouncen und den neuen Wert erst danach übernehmen.
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        vh = window.innerHeight / 100;
+        update();
+      }, 200);
+    }
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", onResize);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
+      clearTimeout(resizeTimer);
     };
   }, []);
 
