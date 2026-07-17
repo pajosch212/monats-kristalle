@@ -64,27 +64,24 @@ body {
   }
 }
 
-/* Kristalle, die per Scroll-Fortschritt hochwandern & sich drehen (native scroll-driven animation) */
+/* Kristalle: von Anfang an sichtbar, drehen & wandern hoch je mehr gescrollt wird */
 .crystal-float {
   animation: crystal-rise linear;
   animation-timeline: scroll(root);
-  animation-range: 0% 100%;
+  animation-range: 0% 70%;
   will-change: transform, opacity;
 }
 
 @keyframes crystal-rise {
   0% {
-    transform: translateY(40vh) rotate(var(--rotate-start));
-    opacity: 0;
-  }
-  10% {
+    transform: translateY(0) rotate(var(--rotate-start));
     opacity: 0.9;
   }
-  90% {
+  85% {
     opacity: 0.9;
   }
   100% {
-    transform: translateY(-140vh) rotate(var(--rotate-end));
+    transform: translateY(-120vh) rotate(var(--rotate-end));
     opacity: 0;
   }
 }
