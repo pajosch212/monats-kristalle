@@ -53,6 +53,16 @@ export function Hero() {
               automatisch jeden Monat an deiner Tür.
             </p>
 
+            <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-3xl overflow-hidden shadow-xl shadow-ink/15 mb-9 border border-line">
+              <Image
+                src={asset("/images/spiritual-objects.jpeg")}
+                alt="Spirituelle Objekte und Kristalle"
+                fill
+                sizes="192px"
+                className="object-cover"
+              />
+            </div>
+
             <div className="flex items-baseline gap-4 flex-wrap justify-center mb-9">
               <span className="font-display text-5xl font-semibold text-terracotta">1€</span>
               <span className="text-taupe/60 line-through text-lg">24,99€</span>

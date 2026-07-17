@@ -12,7 +12,7 @@ const crystals = [
 
 export function CrystalDrift() {
   return (
-    <div className="crystal-drift pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+    <div className="crystal-drift pointer-events-none fixed inset-0 z-40 overflow-hidden" aria-hidden="true">
       {crystals.map((c, i) => (
         <div
           key={c.src}
