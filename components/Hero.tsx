@@ -73,7 +73,7 @@ export function Hero() {
             </div>
 
             <a
-              href="#preis"
+              href="/monats-kristalle/abo/"
               className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-ink px-10 text-base font-semibold text-card transition-all duration-300 hover:bg-terracotta hover:scale-105 active:scale-95 hover:ring-4 hover:ring-terracotta/20"
             >
               <span className="relative z-10">Jetzt für 1€ dein Paket sichern</span>

@@ -11,7 +11,7 @@ export function FinalCta() {
           auf seinen <em className="italic font-medium text-terracotta">ersten Monat</em>
         </h2>
         <a
-          href="#preis"
+          href="/monats-kristalle/abo/"
           className="mt-9 inline-flex items-center gap-2 bg-ink text-card font-semibold px-9 py-4 rounded-full hover:bg-terracotta hover:scale-105 transition-all duration-300"
         >
           Jetzt für 1€ starten →
