@@ -8,8 +8,8 @@ const faqs = [
     a: "Dein erstes Paket kommt für nur 1€ zu dir nach Hause. Ab Erhalt hast du 14 Tage Zeit, in Ruhe zu testen. Gefällt es dir nicht, kündigst du innerhalb dieser Frist und zahlst nichts weiter.",
   },
   {
-    q: "Wie kündige ich mein Abo?",
-    a: "Dein Abo läuft monatlich und ist jederzeit zum Ende des laufenden Monats kündbar — ganz ohne Mindestlaufzeit oder Kündigungsfrist im Kleingedruckten.",
+    q: "Wie kündige ich meine Mitgliedschaft?",
+    a: "Deine Mitgliedschaft läuft monatlich und ist jederzeit zum Ende des laufenden Monats kündbar — ganz ohne Mindestlaufzeit oder Kündigungsfrist im Kleingedruckten.",
   },
   {
     q: "Was ist in einem Paket enthalten?",
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "Wie funktioniert die monatliche Auslosung?",
-    a: "Jedes aktive Abo nimmt automatisch an einer monatlichen Verlosung um Einkaufsguthaben und Bonuskristalle teil. Gewinne werden automatisch deiner nächsten Sendung beigelegt.",
+    a: "Jede aktive Mitgliedschaft nimmt automatisch an einer monatlichen Verlosung um Einkaufsguthaben und Bonuskristalle teil. Gewinne werden automatisch deiner nächsten Sendung beigelegt.",
   },
 ];
 

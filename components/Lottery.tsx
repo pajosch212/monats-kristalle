@@ -22,7 +22,7 @@ export function Lottery() {
               Gewinnen, ohne <em className="italic font-medium text-terracotta">etwas zu tun</em>
             </h2>
             <p className="mt-4 text-taupe">
-              Mit jedem aktiven Abo nimmst du automatisch an der monatlichen Verlosung teil. Kein
+              Mit jeder aktiven Mitgliedschaft nimmst du automatisch an der monatlichen Verlosung teil. Kein
               Zusatzkauf, keine Anmeldung nötig.
             </p>
             <ul className="mt-7 flex flex-col gap-4">

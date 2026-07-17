@@ -9,7 +9,7 @@ export function NavBar() {
           <li><a href="/monats-kristalle/#zyklus" className="hover:text-ink transition-opacity">Wie es funktioniert</a></li>
           <li><a href="/monats-kristalle/#gruende" className="hover:text-ink transition-opacity">Warum wir</a></li>
           <li><a href="/monats-kristalle/#auslosung" className="hover:text-ink transition-opacity">Auslosung</a></li>
-          <li><a href="/monats-kristalle/abo/" className="hover:text-ink transition-opacity">Abo abschließen</a></li>
+          <li><a href="/monats-kristalle/abo/" className="hover:text-ink transition-opacity">Mitgliedschaft abschließen</a></li>
         </ul>
         <button
           type="button"

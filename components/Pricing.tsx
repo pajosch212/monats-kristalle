@@ -39,7 +39,7 @@ export function Pricing() {
             Jetzt für 1€ dein Paket sichern
           </a>
           <p className="mt-5 text-xs leading-relaxed text-taupe/85">
-            Nach Ablauf der 14-tägigen Bedenkzeit verlängert sich dein Abo automatisch um jeweils
+            Nach Ablauf der 14-tägigen Bedenkzeit verlängert sich deine Mitgliedschaft automatisch um jeweils
             einen Monat zum Preis von 24,99€ zzgl. 4,95€ Versand, bis du kündigst. Kündigung ist
             monatlich zum Ende der jeweiligen Laufzeit möglich.
           </p>
