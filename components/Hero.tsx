@@ -48,7 +48,7 @@ export function Hero() {
               <em className="italic font-medium text-terracotta">Kristalle</em> bei dir ein
             </h1>
 
-            <p className="text-taupe text-lg md:text-xl max-w-xl mb-9 leading-relaxed">
+            <p className="text-taupe text-lg md:text-xl max-w-xl mb-9 leading-relaxed [text-shadow:0_1px_12px_var(--card),0_0_24px_var(--card)]">
               Dein handverlesenes Paket mit mehreren Kristallen & besonderen Extras —
               automatisch jeden Monat in deinem Briefkasten.
             </p>
