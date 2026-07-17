@@ -44,12 +44,12 @@ export function Hero() {
             </div>
 
             <h1 className="font-display font-light text-5xl md:text-7xl lg:text-[5.2rem] tracking-tight text-ink mb-7 leading-[1.04]">
-              Jeden Monat ein neuer <br />
-              <em className="italic font-medium text-terracotta">Kraftstein</em> zieht bei dir ein
+              Jeden Monat neue <br />
+              <em className="italic font-medium text-terracotta">Kristalle</em> ziehen bei dir ein
             </h1>
 
             <p className="text-taupe text-lg md:text-xl max-w-xl mb-9 leading-relaxed">
-              Ein handverlesenes Paket mit Kristallen, Ritualen und spirituellen Extras —
+              Ein handverlesenes Paket mit mehreren Kristallen, kleinen Ritualen und besonderen Extras —
               automatisch jeden Monat an deiner Tür.
             </p>
 

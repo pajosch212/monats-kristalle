@@ -2,24 +2,24 @@ import Image from "next/image";
 import { asset } from "@/lib/assets";
 
 const crystals = [
-  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, top: "4%", size: 90, rotateStart: -8, rotateEnd: 340 },
-  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, top: "10%", size: 100, rotateStart: 10, rotateEnd: -330 },
-  { src: asset("/images/crystals/rubin.png"), side: "left" as const, top: "18%", size: 85, rotateStart: -12, rotateEnd: 348 },
-  { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, top: "26%", size: 85, rotateStart: -15, rotateEnd: 350 },
-  { src: asset("/images/crystals/tuerkiser-kristall.png"), side: "left" as const, top: "34%", size: 95, rotateStart: 9, rotateEnd: -338 },
-  { src: asset("/images/crystals/zitrin.png"), side: "right" as const, top: "42%", size: 80, rotateStart: 12, rotateEnd: -345 },
-  { src: asset("/images/crystals/aquamarin.png"), side: "left" as const, top: "50%", size: 90, rotateStart: -10, rotateEnd: 342 },
-  { src: asset("/images/crystals/karneol.png"), side: "right" as const, top: "58%", size: 90, rotateStart: -10, rotateEnd: 355 },
-  { src: asset("/images/crystals/quadratischer-stein.png"), side: "left" as const, top: "66%", size: 85, rotateStart: 14, rotateEnd: -352 },
-  { src: asset("/images/crystals/roter-stein.png"), side: "right" as const, top: "74%", size: 90, rotateStart: -9, rotateEnd: 346 },
-  { src: asset("/images/crystals/zoisit.png"), side: "left" as const, top: "82%", size: 95, rotateStart: 8, rotateEnd: -350 },
-  { src: asset("/images/crystals/rare-crystal.png"), side: "right" as const, top: "88%", size: 80, rotateStart: -11, rotateEnd: 341 },
-  { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, top: "94%", size: 85, rotateStart: 10, rotateEnd: -344 },
+  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, top: "2%", size: 90, rotateStart: -8, rotateEnd: 700 },
+  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, top: "6%", size: 100, rotateStart: 10, rotateEnd: -660 },
+  { src: asset("/images/crystals/rubin.png"), side: "left" as const, top: "13%", size: 85, rotateStart: -12, rotateEnd: 640 },
+  { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, top: "18%", size: 85, rotateStart: -15, rotateEnd: 690 },
+  { src: asset("/images/crystals/tuerkiser-kristall.png"), side: "left" as const, top: "26%", size: 95, rotateStart: 9, rotateEnd: -670 },
+  { src: asset("/images/crystals/zitrin.png"), side: "right" as const, top: "32%", size: 80, rotateStart: 12, rotateEnd: -650 },
+  { src: asset("/images/crystals/aquamarin.png"), side: "left" as const, top: "40%", size: 90, rotateStart: -10, rotateEnd: 680 },
+  { src: asset("/images/crystals/karneol.png"), side: "right" as const, top: "48%", size: 90, rotateStart: -10, rotateEnd: 710 },
+  { src: asset("/images/crystals/quadratischer-stein.png"), side: "left" as const, top: "58%", size: 85, rotateStart: 14, rotateEnd: -690 },
+  { src: asset("/images/crystals/roter-stein.png"), side: "right" as const, top: "66%", size: 90, rotateStart: -9, rotateEnd: 660 },
+  { src: asset("/images/crystals/zoisit.png"), side: "left" as const, top: "76%", size: 95, rotateStart: 8, rotateEnd: -700 },
+  { src: asset("/images/crystals/rare-crystal.png"), side: "right" as const, top: "84%", size: 80, rotateStart: -11, rotateEnd: 640 },
+  { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, top: "92%", size: 85, rotateStart: 10, rotateEnd: -670 },
 ];
 
-// Kristalle verteilen sich über das 3-fache der Fensterhöhe, statt alle
-// gleichzeitig in einem Viewport zu stapeln — so sind immer nur ~6 auf einmal sichtbar.
-const SPREAD_VH = 400;
+// Kristalle über 180% der Fensterhöhe gestaffelt: beim Landen sind die ersten
+// ~7 direkt sichtbar, der Rest kommt beim Scrollen nach; alle drehen sich weiter mit.
+const SPREAD_VH = 180;
 
 export function CrystalDrift() {
   return (
@@ -28,13 +28,13 @@ export function CrystalDrift() {
       style={{ height: `${SPREAD_VH}vh` }}
       aria-hidden="true"
     >
-      {crystals.map((c, i) => (
+      {crystals.map((c) => (
         <div
           key={c.src}
           className="crystal-float absolute opacity-90"
           style={
             {
-              top: `${(i / crystals.length) * SPREAD_VH}vh`,
+              top: c.top,
               [c.side]: "2%",
               width: c.size,
               height: c.size,
