@@ -5,25 +5,25 @@ import { useEffect, useRef } from "react";
 import { asset } from "@/lib/assets";
 
 const crystals = [
-  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, topPct: 4, size: 90, rotateStart: -8, rotateEnd: 340 },
-  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, topPct: 12, size: 100, rotateStart: 10, rotateEnd: -330 },
-  { src: asset("/images/crystals/rubin.png"), side: "left" as const, topPct: 26, size: 85, rotateStart: -12, rotateEnd: 348 },
-  { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, topPct: 38, size: 85, rotateStart: -15, rotateEnd: 350 },
-  { src: asset("/images/crystals/tuerkiser-kristall.png"), side: "left" as const, topPct: 50, size: 95, rotateStart: 9, rotateEnd: -338 },
-  { src: asset("/images/crystals/zitrin.png"), side: "right" as const, topPct: 62, size: 80, rotateStart: 12, rotateEnd: -345 },
-  { src: asset("/images/crystals/aquamarin.png"), side: "left" as const, topPct: 74, size: 90, rotateStart: -10, rotateEnd: 342 },
-  { src: asset("/images/crystals/karneol.png"), side: "right" as const, topPct: 86, size: 90, rotateStart: -10, rotateEnd: 355 },
-  { src: asset("/images/crystals/quadratischer-stein.png"), side: "left" as const, topPct: 98, size: 85, rotateStart: 14, rotateEnd: -352 },
-  { src: asset("/images/crystals/roter-stein.png"), side: "right" as const, topPct: 110, size: 90, rotateStart: -9, rotateEnd: 346 },
-  { src: asset("/images/crystals/zoisit.png"), side: "left" as const, topPct: 122, size: 95, rotateStart: 8, rotateEnd: -350 },
-  { src: asset("/images/crystals/rare-crystal.png"), side: "right" as const, topPct: 134, size: 80, rotateStart: -11, rotateEnd: 341 },
-  { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, topPct: 146, size: 85, rotateStart: 10, rotateEnd: -344 },
+  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, topPct: 8, size: 90, rotateStart: -8, rotateEnd: 340 },
+  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, topPct: 24, size: 100, rotateStart: 10, rotateEnd: -330 },
+  { src: asset("/images/crystals/rubin.png"), side: "left" as const, topPct: 52, size: 85, rotateStart: -12, rotateEnd: 348 },
+  { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, topPct: 76, size: 85, rotateStart: -15, rotateEnd: 350 },
+  { src: asset("/images/crystals/tuerkiser-kristall.png"), side: "left" as const, topPct: 100, size: 95, rotateStart: 9, rotateEnd: -338 },
+  { src: asset("/images/crystals/zitrin.png"), side: "right" as const, topPct: 124, size: 80, rotateStart: 12, rotateEnd: -345 },
+  { src: asset("/images/crystals/aquamarin.png"), side: "left" as const, topPct: 148, size: 90, rotateStart: -10, rotateEnd: 342 },
+  { src: asset("/images/crystals/karneol.png"), side: "right" as const, topPct: 172, size: 90, rotateStart: -10, rotateEnd: 355 },
+  { src: asset("/images/crystals/quadratischer-stein.png"), side: "left" as const, topPct: 196, size: 85, rotateStart: 14, rotateEnd: -352 },
+  { src: asset("/images/crystals/roter-stein.png"), side: "right" as const, topPct: 220, size: 90, rotateStart: -9, rotateEnd: 346 },
+  { src: asset("/images/crystals/zoisit.png"), side: "left" as const, topPct: 244, size: 95, rotateStart: 8, rotateEnd: -350 },
+  { src: asset("/images/crystals/rare-crystal.png"), side: "right" as const, topPct: 268, size: 80, rotateStart: -11, rotateEnd: 341 },
+  { src: asset("/images/crystals/kristall-unbekannt.png"), side: "left" as const, topPct: 288, size: 85, rotateStart: 10, rotateEnd: -344 },
 ];
 
-// Kristalle sind auf 150% der Fensterhöhe verteilt (also ~7 gleichzeitig im
-// Bild), driften beim Scrollen nach oben und loopen von unten wieder rein,
-// während sie sich weiter drehen.
-const LOOP_PCT = 150;
+// Kristalle sind auf 300% der Fensterhöhe verteilt statt 150%, also sind
+// gleichzeitig nur noch ~3-4 im Bild statt ~7; driften beim Scrollen nach
+// oben und loopen von unten wieder rein, während sie sich weiter drehen.
+const LOOP_PCT = 300;
 
 export function CrystalDrift() {
   const ref = useRef<HTMLDivElement>(null);

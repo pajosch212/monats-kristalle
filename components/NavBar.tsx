@@ -1,13 +1,9 @@
 export function NavBar() {
   return (
     <nav className="sticky top-0 z-50 bg-bg/90 backdrop-blur-md border-b border-line">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
-        <a href="#" className="font-display text-2xl font-medium text-ink flex items-center gap-2.5">
-          <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-            <path d="M12 2L4 14L12 22L20 14L12 2Z" stroke="#8b4a3f" strokeWidth="1.4" strokeLinejoin="round" />
-            <path d="M12 2L8 14L12 22L16 14L12 2Z" stroke="#2b2621" strokeWidth="1" strokeLinejoin="round" opacity="0.4" />
-          </svg>
-          Monats-Kristalle
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+        <a href="#" className="font-display text-lg font-medium text-ink flex items-baseline gap-0.5">
+          Monats<span className="text-terracotta">.</span>Kristalle
         </a>
         <ul className="hidden md:flex gap-9 list-none text-sm font-medium text-ink/75">
           <li><a href="#zyklus" className="hover:text-ink transition-opacity">Wie es funktioniert</a></li>
@@ -15,12 +11,15 @@ export function NavBar() {
           <li><a href="#auslosung" className="hover:text-ink transition-opacity">Auslosung</a></li>
           <li><a href="#preis" className="hover:text-ink transition-opacity">Preis</a></li>
         </ul>
-        <a
-          href="#preis"
-          className="text-sm font-semibold px-5 py-2.5 border-[1.5px] border-ink rounded-full hover:bg-ink hover:text-card transition-colors"
+        <button
+          type="button"
+          aria-label="Menü öffnen"
+          className="flex flex-col justify-center gap-[5px] w-9 h-9 items-center"
         >
-          Für 1€ starten
-        </a>
+          <span className="block w-6 h-[1.5px] bg-ink" />
+          <span className="block w-6 h-[1.5px] bg-ink" />
+          <span className="block w-6 h-[1.5px] bg-ink" />
+        </button>
       </div>
     </nav>
   );
