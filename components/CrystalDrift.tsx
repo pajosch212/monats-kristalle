@@ -51,15 +51,17 @@ export function CrystalDrift() {
         const end = Number(item.dataset.rotateEnd);
 
         // Position driftet mit dem Scrollen nach oben und loopt innerhalb von LOOP_PCT.
+        // Über translateY (Compositor, kein Reflow) statt top, damit bei
+        // schnellem Scrollen keine Frames/Sprünge sichtbar werden.
         const driftPct = ((basePct - scrollY / vh * 0.6) % LOOP_PCT + LOOP_PCT) % LOOP_PCT;
+        const offsetPct = driftPct - basePct;
         const angle = start + (end - start) * ((scrollY / vh) % 360) / 360;
 
         // Nahe den Rändern (kurz vor dem Loop-Sprung) ausblenden.
         const distToEdge = Math.min(driftPct, LOOP_PCT - driftPct);
         const opacity = MAX_OPACITY * Math.min(1, distToEdge / FADE_ZONE);
 
-        item.style.top = `${driftPct}%`;
-        item.style.transform = `rotate(${angle}deg)`;
+        item.style.transform = `translateY(${offsetPct}vh) rotate(${angle}deg)`;
         item.style.opacity = String(opacity);
       }
     }
