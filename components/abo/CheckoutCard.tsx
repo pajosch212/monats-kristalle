@@ -11,7 +11,7 @@ const checklist = [
   { text: "Geliefert in den Briefkasten — du musst nicht zu Hause sein", image: asset("/images/crystals/krokoit.png") },
   { text: "Exklusiver Zugang zu Sonderangeboten und zur WhatsApp-Community", image: asset("/images/crystals/tuerkiser-kristall.png") },
   { text: "Jederzeit kündbar — keine Mindestlaufzeit", image: asset("/images/crystals/zitrin.png") },
-  { text: "14 Tage Bedenkzeit — völlig risikolos", image: asset("/images/crystals/aquamarin.png") },
+  { text: "4 Wochen Bedenkzeit — völlig risikolos", image: asset("/images/crystals/aquamarin.png") },
 ];
 
 export function CheckoutCard() {
@@ -44,7 +44,7 @@ export function CheckoutCard() {
         >
           Jetzt für 1€ starten
         </a>
-        <p className="mt-4 text-xs text-taupe/85">14 Tage Bedenkzeit · monatlich kündbar</p>
+        <p className="mt-4 text-xs text-taupe/85">4 Wochen Bedenkzeit · monatlich kündbar</p>
       </div>
     </section>
   );

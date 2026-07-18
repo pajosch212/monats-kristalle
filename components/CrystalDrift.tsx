@@ -39,14 +39,15 @@ const STEP_VH = 28;
 // direkt am oberen Rand abgeschnitten wirkt.
 const START_VH = 10;
 
-export function CrystalDrift() {
+export function CrystalDrift({ count = crystals.length }: { count?: number }) {
+  const visible = crystals.slice(0, count);
   return (
     <div
       className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40"
-      style={{ height: `${START_VH + crystals.length * STEP_VH}vh` }}
+      style={{ height: `${START_VH + visible.length * STEP_VH}vh` }}
       aria-hidden="true"
     >
-      {crystals.map((c, i) => (
+      {visible.map((c, i) => (
         <div
           key={c.src}
           className="crystal-float absolute opacity-90"

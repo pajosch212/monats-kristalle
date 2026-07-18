@@ -80,7 +80,7 @@ export function Hero() {
               <ArrowRight className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
 
-            <p className="text-taupe text-sm mt-4">14 Tage Bedenkzeit inklusive</p>
+            <p className="text-taupe text-sm mt-4">4 Wochen Bedenkzeit inklusive</p>
             <div className="flex items-center gap-3 mt-6 text-sm text-taupe">
               <span className="text-terracotta tracking-widest">★★★★★</span>
               8,4/10 aus 81 Bewertungen
