@@ -11,11 +11,8 @@ export function ReservationCountdownBar() {
   }
 
   return (
-    <div className="sticky top-0 z-[60] bg-red-700 text-white flex items-center justify-between gap-4 py-3.5 px-4 md:px-6 text-base md:text-lg font-bold tracking-tight">
-      <span>Dein reserviertes Paket läuft ab in</span>
-      <span>
-        {minutes}:{seconds}
-      </span>
+    <div className="sticky top-0 z-[60] bg-red-700 text-white text-center py-3.5 px-4 text-base md:text-lg font-bold tracking-tight">
+      Dein reserviertes Paket läuft ab in {minutes}:{seconds}
     </div>
   );
 }

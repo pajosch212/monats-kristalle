@@ -110,6 +110,34 @@ body {
   }
 }
 
+/* Fließtext liegt über den frei schwebenden Deko-Kristallen (z-40) und
+   bekommt einen blickdichten Hintergrund in der Farbe der jeweils
+   umgebenden Section, damit ein Kristall, der gerade über eine Textzeile
+   driftet, sie nicht unlesbar macht — der Kristall wirkt dadurch "hinter"
+   dem Text statt drüber. Sections mit hellem Kartenhintergrund (.bg-card)
+   geben den Farbton via --text-backdrop weiter, alle anderen nutzen die
+   normale Seiten-Hintergrundfarbe. */
+main {
+  --text-backdrop: var(--bg);
+}
+
+main .bg-card {
+  --text-backdrop: var(--card);
+}
+
+main :is(h1, h2, h3, p) {
+  position: relative;
+  z-index: 45;
+  background: var(--text-backdrop);
+}
+
+/* Ausnahmen: Text, der bewusst auf Bildern, in eigenen Karten oder als
+   Inline-Akzent (em/span, z.B. die farbige Hervorhebung in Überschriften)
+   sitzt, soll keinen zusätzlichen Hintergrund-Flicken bekommen. */
+main :is(h1, h2, h3, p) :is(em, span) {
+  background: none;
+}
+
 /* Konfetti-Fall-Animation für die Quiz-Erfolgsseite (siehe Confetti.tsx). */
 .confetti-piece {
   animation-name: confetti-fall;

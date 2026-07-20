@@ -30,22 +30,21 @@ const crystals = [
   { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, size: 90, rotateStart: 11, rotateEnd: -343 },
 ];
 
-// Kristalle stehen abwechselnd links/rechts in festem vh-Abstand (22vh), damit
-// bei einem ~90vh-Bildschirm ca. 4 gleichzeitig sichtbar sind. Jeder dreht
-// sich zusätzlich per CSS scroll(root) — reines CSS, kein JS-Scroll-Handler.
-// Grund: auf Mobile läuft natives Scrollen auf einem eigenen Compositor-
-// Thread getrennt vom JS-Thread, wodurch jede JS-basierte Positions-
-// berechnung dem echten Scrollen leicht hinterherhinkt und beim Stoppen
-// sichtbar "nachschnappt". CSS scroll-timelines laufen selbst auf dem
-// Compositor-Thread und haben dieses Problem nicht.
-const STEP_VH = 22;
-const START_VH = 6;
+// Kristalle stehen abwechselnd links/rechts, in Prozent der Container-Höhe
+// gleichmäßig verteilt (statt fester vh-Schritte) — dadurch bleibt die
+// Verteilung "von oben bis unten gleichmäßig" auch wenn sich die reale
+// Seitenlänge durch spätere Content-Änderungen verschiebt: der Container
+// füllt per `inset-0` immer exakt die Höhe seines relativ positionierten
+// Elternelements (z.B. <main>), egal wie lang die Seite tatsächlich ist.
+// Jeder Kristall dreht sich zusätzlich per CSS scroll(root) — reines CSS,
+// kein JS-Scroll-Handler. Grund: auf Mobile läuft natives Scrollen auf einem
+// eigenen Compositor-Thread getrennt vom JS-Thread, wodurch jede
+// JS-basierte Positionsberechnung dem echten Scrollen leicht hinterherhinkt
+// und beim Stoppen sichtbar "nachschnappt". CSS scroll-timelines laufen
+// selbst auf dem Compositor-Thread und haben dieses Problem nicht.
+const START_PCT = 2;
+const END_PCT = 96;
 
-// height="content": Container ist so hoch wie sein Elternelement (für
-// Bereiche mit fester Höhe, z.B. nur der Hero). height="page": Container
-// erstreckt sich exakt über count*STEP_VH, um die ganze Seite unabhängig
-// von ihrer echten Länge mit Kristallen zu schmücken, ohne die Seite selbst
-// zu verlängern (er liegt "über" dem Content, nicht im Dokumentfluss).
 export function CrystalDrift({
   count = crystals.length,
   indices,
@@ -54,23 +53,20 @@ export function CrystalDrift({
   count?: number;
   /** Explizite Auswahl von Kristall-Indizes statt der ersten `count`. */
   indices?: number[];
-  /** Position im Array der sichtbaren Kristalle -> abweichender top-Wert in vh. */
+  /** Position im Array der sichtbaren Kristalle -> abweichender top-Wert in %. */
   topOverrides?: Record<number, number>;
 }) {
   const visible = (indices ?? crystals.map((_, i) => i).slice(0, count)).map((idx) => crystals[idx]);
+  const step = visible.length > 1 ? (END_PCT - START_PCT) / (visible.length - 1) : 0;
   return (
-    <div
-      className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40 overflow-x-hidden"
-      style={{ height: `${START_VH + visible.length * STEP_VH}vh` }}
-      aria-hidden="true"
-    >
+    <div className="crystal-drift pointer-events-none absolute inset-0 z-40 overflow-x-hidden" aria-hidden="true">
       {visible.map((c, i) => (
         <div
           key={`${c.src}-${i}`}
           className="crystal-float absolute opacity-90"
           style={
             {
-              top: `${topOverrides?.[i] ?? START_VH + i * STEP_VH}vh`,
+              top: `${topOverrides?.[i] ?? START_PCT + i * step}%`,
               [c.side]: "2%",
               width: c.size,
               height: c.size,
