@@ -79,7 +79,7 @@ export function CrystalDrift({
             } as React.CSSProperties
           }
         >
-          <Image src={c.src} alt="" fill className="object-contain drop-shadow-xl" sizes="100px" />
+          <Image src={c.src} alt="" fill loading="eager" className="object-contain drop-shadow-xl" sizes="100px" />
         </div>
       ))}
     </div>

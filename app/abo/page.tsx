@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function AboPage() {
   return (
     <>
-      <CrystalDrift count={32} />
+      <CrystalDrift count={32} topOverrides={{ 1: 45 }} />
       <ReservationCountdownBar />
       <main className="flex-1 pb-20">
         <AboHero />
