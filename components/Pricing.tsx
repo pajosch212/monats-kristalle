@@ -33,7 +33,7 @@ export function Pricing() {
             ))}
           </ul>
           <a
-            href="/monats-kristalle/abo/"
+            href="/abo/"
             className="w-full inline-flex justify-center items-center gap-2 bg-ink text-card font-semibold text-base py-4 rounded-full hover:bg-terracotta transition-colors duration-300"
           >
             Jetzt kostenlos dein Paket sichern

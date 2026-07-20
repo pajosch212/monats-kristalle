@@ -6,8 +6,8 @@ import { asset } from "@/lib/assets";
 
 const gifts = [
   { id: "amethyst", label: "Amethystspitze", image: asset("/images/crystals/amethyst.png") },
-  { id: "mokait", label: "Mokait Rotstein", image: asset("/images/crystals/roter-stein.png") },
-  { id: "aventurin", label: "Aventurin Trommelstein", image: asset("/images/crystals/kristallspitze.png") },
+  { id: "mokait", label: "Mokait Rotstein", image: asset("/images/crystals/mokait-rotstein.png") },
+  { id: "aventurin", label: "Aventurin Trommelstein", image: asset("/images/crystals/aventurin-trommelstein.png") },
 ];
 
 export function GiftSelector() {

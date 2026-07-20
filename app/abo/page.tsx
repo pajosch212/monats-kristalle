@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NavBar } from "@/components/NavBar";
 import { CrystalDrift } from "@/components/CrystalDrift";
+import { ReservationCountdownBar } from "@/components/abo/ReservationCountdownBar";
 import { AboHero } from "@/components/abo/AboHero";
 import { HowItWorks } from "@/components/abo/HowItWorks";
 import { WhyOneEuro } from "@/components/abo/WhyOneEuro";
@@ -8,7 +9,6 @@ import { PackageContents } from "@/components/abo/PackageContents";
 import { CheckoutCard } from "@/components/abo/CheckoutCard";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/FinalCta";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { StickyCheckoutBar } from "@/components/abo/StickyCheckoutBar";
 
 export const metadata: Metadata = {
@@ -20,7 +20,8 @@ export const metadata: Metadata = {
 export default function AboPage() {
   return (
     <>
-      <CrystalDrift count={26} />
+      <CrystalDrift count={13} />
+      <ReservationCountdownBar />
       <NavBar />
       <main className="flex-1 pb-20">
         <AboHero />
@@ -30,7 +31,6 @@ export default function AboPage() {
         <Faq />
         <CheckoutCard />
       </main>
-      <NewsletterSignup />
       <Footer />
       <StickyCheckoutBar />
     </>

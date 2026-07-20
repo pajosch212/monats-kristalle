@@ -22,7 +22,9 @@
   --font-body: var(--font-body);
 }
 
-html,
+/* overflow-x nur auf body, nicht auf html: overflow auf html erzeugt einen
+   neuen Scroll-Kontext auf dem Wurzelelement und bricht dadurch
+   position: sticky für alle Nachfahren (z.B. NavBar, ReservationCountdownBar). */
 body {
   overflow-x: hidden;
   max-width: 100%;
@@ -105,5 +107,23 @@ body {
   .crystal-float {
     animation: none;
     transform: rotate(var(--rotate-start));
+  }
+}
+
+/* Konfetti-Fall-Animation für die Quiz-Erfolgsseite (siehe Confetti.tsx). */
+.confetti-piece {
+  animation-name: confetti-fall;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes confetti-fall {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(105vh) rotate(540deg);
+    opacity: 0.9;
   }
 }

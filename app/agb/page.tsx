@@ -32,7 +32,7 @@ export default function AgbPage() {
         sie gekündigt wird. Eine Kündigung ist jederzeit zum Ende des laufenden Zyklus möglich, ohne
         Angabe von Gründen und ohne Mindestlaufzeit. Für die Kündigungsmöglichkeiten in den ersten 4
         Wochen gilt zusätzlich unsere freiwillige Bedenkzeit-Regelung, siehe{" "}
-        <a href="/monats-kristalle/widerrufsrecht/">Widerrufsrecht</a>.
+        <a href="/widerrufsrecht/">Widerrufsrecht</a>.
       </p>
 
       <h2>§ 5 Lieferung</h2>
@@ -51,7 +51,7 @@ export default function AgbPage() {
       <h2>§ 7 Widerrufsrecht</h2>
       <p>
         Es gilt das gesetzliche Widerrufsrecht für Verbraucher. Details findest du in unserer separaten{" "}
-        <a href="/monats-kristalle/widerrufsrecht/">Widerrufsbelehrung</a>.
+        <a href="/widerrufsrecht/">Widerrufsbelehrung</a>.
       </p>
 
       <h2>§ 8 Haftung</h2>
