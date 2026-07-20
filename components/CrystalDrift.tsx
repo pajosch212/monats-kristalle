@@ -50,12 +50,15 @@ export function CrystalDrift({
   count = crystals.length,
   indices,
   topOverrides,
+  sideOverrides,
 }: {
   count?: number;
   /** Explizite Auswahl von Kristall-Indizes statt der ersten `count`. */
   indices?: number[];
   /** Position im Array der sichtbaren Kristalle -> abweichender top-Wert in vh. */
   topOverrides?: Record<number, number>;
+  /** Position im Array der sichtbaren Kristalle -> abweichender Randabstand in % (ersetzt die festen 2%). */
+  sideOverrides?: Record<number, number>;
 }) {
   const visible = (indices ?? crystals.map((_, i) => i).slice(0, count)).map((idx) => crystals[idx]);
   return (
@@ -71,7 +74,7 @@ export function CrystalDrift({
           style={
             {
               top: `${topOverrides?.[i] ?? START_VH + i * STEP_VH}vh`,
-              [c.side]: "2%",
+              [c.side]: `${sideOverrides?.[i] ?? 2}%`,
               width: c.size,
               height: c.size,
               "--rotate-start": `${c.rotateStart}deg`,
