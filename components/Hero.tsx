@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useState, Suspense, lazy } from "react";
 import { asset } from "@/lib/assets";
+import { CrystalDrift } from "@/components/CrystalDrift";
 
 const Dithering = lazy(() =>
   import("@paper-design/shaders-react").then((mod) => ({ default: mod.Dithering }))
@@ -19,6 +20,8 @@ export function Hero() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
+        <CrystalDrift count={9} />
+
         <div className="relative overflow-hidden rounded-[40px] border border-line bg-card min-h-[600px] md:min-h-[680px] flex flex-col items-center justify-center text-center px-6 pt-10 md:pt-24 pb-16 duration-500">
           <Suspense fallback={<div className="absolute inset-0 bg-bg/40" />}>
             <div className="absolute inset-0 z-0 pointer-events-none opacity-50 mix-blend-multiply">
@@ -81,8 +84,8 @@ export function Hero() {
             </a>
 
             <p className="text-taupe text-sm mt-4">4 Wochen Bedenkzeit inklusive</p>
-            <div className="flex items-center gap-3 mt-6 text-lg text-ink font-medium">
-              <span className="text-terracotta tracking-widest text-2xl">★★★★★</span>
+            <div className="flex items-center gap-3 mt-6 text-sm text-taupe">
+              <span className="text-terracotta tracking-widest">★★★★★</span>
               9,4/10 aus 310 Bewertungen
             </div>
           </div>
