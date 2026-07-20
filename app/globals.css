@@ -77,21 +77,19 @@ body {
    native CSS scroll-Timeline weiter — läuft auf dem Compositor-Thread,
    dadurch kein Hinterherhinken/Nachschnappen wie bei JS-Scroll-Handlern
    auf Mobile (siehe CrystalDrift.tsx für die Begründung).
-   view() statt scroll(root): view() bindet die Animation an die
-   Sichtbarkeit JEDES EINZELNEN Kristalls im eigenen Scroll-Vorfahren,
-   nicht an die globale Scroll-Position des ganzen Dokuments. Mit
-   scroll(root) + einer festen animation-range (z.B. 0px–3000px) hatten
-   auf langen Seiten (viele Kristalle) alle Kristalle ihre Animation
-   bereits nach den ersten 3000px Scrollstrecke komplett durchlaufen —
-   nah beieinander stehende Kristalle bewegten sich dadurch gleichzeitig
-   durch denselben Viewport-Ausschnitt und wirkten wie "vertauscht"/neu
-   geladen. animation-range: cover läuft von "Element betritt Viewport"
-   bis "Element verlässt Viewport" — dadurch bewegt sich jeder Kristall
-   unabhängig von der Seitenlänge oder Anzahl anderer Kristalle. */
+   scroll(root) mit einer PRO KRISTALL individuellen animation-range
+   (gesetzt inline in CrystalDrift.tsx, relativ zur eigenen top-Position)
+   statt einer für die ganze Seite fixen Range: vorher liefen auf langen
+   Seiten (viele Kristalle) alle Animationen innerhalb derselben ersten
+   3000px Scrollstrecke komplett durch, wodurch nah beieinander stehende
+   Kristalle sich gleichzeitig durch denselben Viewport-Ausschnitt
+   bewegten und wie "vertauscht"/neu geladen wirkten. view() wurde
+   testweise probiert, hat die Bewegung beim Scrollen aber komplett
+   gestoppt (Fortschritt blieb bei jedem scrollY-Wert identisch) —
+   zurück zu scroll(root), jetzt mit korrekt kalibrierter Range. */
 .crystal-float {
   animation: crystal-spin linear;
-  animation-timeline: view();
-  animation-range: cover;
+  animation-timeline: scroll(root);
   will-change: transform;
 }
 
@@ -107,9 +105,9 @@ body {
   }
 }
 
-/* Browser ohne view()-Timeline (z.B. ältere Safari): Kristalle bleiben
+/* Browser ohne scroll()-Timeline (z.B. ältere Safari): Kristalle bleiben
    einfach an ihrer Stelle stehen, ohne kaputte/statische Rotation zu zeigen. */
-@supports not (animation-timeline: view()) {
+@supports not (animation-timeline: scroll()) {
   .crystal-float {
     animation: none;
     transform: rotate(var(--rotate-start));

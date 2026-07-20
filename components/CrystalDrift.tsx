@@ -67,24 +67,34 @@ export function CrystalDrift({
       style={{ height: `${START_VH + visible.length * STEP_VH}vh` }}
       aria-hidden="true"
     >
-      {visible.map((c, i) => (
-        <div
-          key={`${c.src}-${i}`}
-          className="crystal-float absolute opacity-90"
-          style={
-            {
-              top: `${topOverrides?.[i] ?? START_VH + i * STEP_VH}vh`,
-              [c.side]: `${sideOverrides?.[i] ?? 2}%`,
-              width: c.size,
-              height: c.size,
-              "--rotate-start": `${c.rotateStart}deg`,
-              "--rotate-end": `${c.rotateEnd}deg`,
-            } as React.CSSProperties
-          }
-        >
-          <Image src={c.src} alt="" fill loading="eager" className="object-contain drop-shadow-xl" sizes="100px" />
-        </div>
-      ))}
+      {visible.map((c, i) => {
+        const topVh = topOverrides?.[i] ?? START_VH + i * STEP_VH;
+        // animation-range pro Kristall relativ zur eigenen top-Position (statt
+        // einer für die ganze Seite fixen Range): jeder Kristall bewegt sich
+        // erst, sobald man tatsächlich in seine Nähe scrollt, und unabhängig
+        // davon, wie lang die Gesamtseite oder wie viele Kristalle sie hat.
+        const rangeStartVh = Math.max(0, topVh - 60);
+        const rangeEndVh = topVh + 40;
+        return (
+          <div
+            key={`${c.src}-${i}`}
+            className="crystal-float absolute opacity-90"
+            style={
+              {
+                top: `${topVh}vh`,
+                [c.side]: `${sideOverrides?.[i] ?? 2}%`,
+                width: c.size,
+                height: c.size,
+                "--rotate-start": `${c.rotateStart}deg`,
+                "--rotate-end": `${c.rotateEnd}deg`,
+                animationRange: `${rangeStartVh}vh ${rangeEndVh}vh`,
+              } as React.CSSProperties
+            }
+          >
+            <Image src={c.src} alt="" fill loading="eager" className="object-contain drop-shadow-xl" sizes="100px" />
+          </div>
+        );
+      })}
     </div>
   );
 }
