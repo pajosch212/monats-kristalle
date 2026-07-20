@@ -73,8 +73,12 @@ export function CrystalDrift({
         // einer für die ganze Seite fixen Range): jeder Kristall bewegt sich
         // erst, sobald man tatsächlich in seine Nähe scrollt, und unabhängig
         // davon, wie lang die Gesamtseite oder wie viele Kristalle sie hat.
-        const rangeStartVh = Math.max(0, topVh - 60);
-        const rangeEndVh = topVh + 40;
+        // -100vh: der Kristall betritt den Viewport von unten genau bei
+        // scrollY = topVh - 100vh (eine Bildschirmhöhe früher als seine
+        // top-Position) — die Range beginnt dort, damit die Bewegung
+        // startet, sobald er überhaupt sichtbar wird, statt erst später.
+        const rangeStartVh = Math.max(0, topVh - 100);
+        const rangeEndVh = topVh + 100;
         return (
           <div
             key={`${c.src}-${i}`}
