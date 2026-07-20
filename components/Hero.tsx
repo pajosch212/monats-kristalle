@@ -40,7 +40,7 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-terracotta opacity-70" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-terracotta" />
               </span>
-              Diesen Monat: 1€ statt 24,99€
+              Diesen Monat: 0€ statt 28,70€
             </div>
 
             <h1 className="font-display font-light text-5xl md:text-7xl lg:text-[5.2rem] tracking-tight text-ink mb-7 leading-[1.04]">
@@ -64,11 +64,11 @@ export function Hero() {
             </div>
 
             <div className="flex items-baseline gap-4 flex-wrap justify-center mb-9">
-              <span className="font-display text-5xl font-semibold text-terracotta">1€</span>
-              <span className="text-taupe/60 line-through text-lg">24,99€</span>
+              <span className="font-display text-5xl font-semibold text-terracotta">0€</span>
+              <span className="text-taupe/60 line-through text-lg">28,70€</span>
               <span className="text-taupe text-sm text-left leading-snug">
-                erster Monat · danach 24,99€/Monat
-                <br />+ 4,95€ Versand · jederzeit kündbar
+                erster Monat · danach 28,70€/Monat
+                <br />inkl. Versand · jederzeit kündbar
               </span>
             </div>
 
@@ -76,7 +76,7 @@ export function Hero() {
               href="/monats-kristalle/abo/"
               className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-ink px-10 text-base font-semibold text-card transition-all duration-300 hover:bg-terracotta hover:scale-105 active:scale-95 hover:ring-4 hover:ring-terracotta/20"
             >
-              <span className="relative z-10">Jetzt für 1€ dein Paket sichern</span>
+              <span className="relative z-10">Jetzt kostenlos dein Paket sichern</span>
               <ArrowRight className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
 

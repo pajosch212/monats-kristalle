@@ -11,13 +11,13 @@ export function AboHero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-terracotta opacity-70" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-terracotta" />
             </span>
-            Nur für Neumitglieder: 1€
+            Nur für Neumitglieder: 0€
           </div>
           <h1 className="font-display font-light text-4xl md:text-6xl tracking-tight text-ink leading-[1.05] mb-4">
             Deine <em className="italic font-medium text-terracotta">Monats-Kristalle</em> Mitgliedschaft
           </h1>
           <p className="text-taupe text-lg max-w-xl mx-auto leading-relaxed">
-            Alles, was du bekommst — auf einen Blick. Sichere dir jetzt deinen ersten Monat für nur 1€.
+            Alles, was du bekommst — auf einen Blick. Sichere dir jetzt deinen ersten Monat kostenlos.
           </p>
         </div>
 

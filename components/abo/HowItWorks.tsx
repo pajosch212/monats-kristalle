@@ -1,8 +1,8 @@
 const steps = [
   {
     number: "1",
-    title: "Jetzt für 1€ bestellen",
-    text: "Du sicherst dir dein erstes Paket für nur 1€ — ganz ohne Risiko.",
+    title: "Jetzt kostenlos bestellen",
+    text: "Du sicherst dir dein erstes Paket für 0€ — ganz ohne Risiko.",
   },
   {
     number: "2",
@@ -12,7 +12,7 @@ const steps = [
   {
     number: "3",
     title: "Jeden Monat neu erleben",
-    text: "Ab dem zweiten Monat 24,99€ + Versand — jederzeit monatlich kündbar.",
+    text: "Ab dem zweiten Monat 28,70€ inkl. Versand — jederzeit monatlich kündbar.",
   },
 ];
 

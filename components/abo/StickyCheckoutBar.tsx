@@ -23,15 +23,15 @@ export function StickyCheckoutBar() {
     >
       <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
         <div className="hidden sm:block">
-          <span className="font-display text-xl font-semibold text-terracotta">1€</span>
-          <span className="text-taupe/60 line-through text-sm ml-2">24,99€</span>
+          <span className="font-display text-xl font-semibold text-terracotta">0€</span>
+          <span className="text-taupe/60 line-through text-sm ml-2">28,70€</span>
           <span className="text-taupe text-xs block sm:inline sm:ml-2">erster Monat</span>
         </div>
         <a
           href={CHECKOUT_URL}
           className="flex-1 sm:flex-none text-center inline-flex justify-center items-center gap-2 bg-ink text-card font-semibold text-sm py-3 px-8 rounded-full hover:bg-terracotta transition-colors duration-300"
         >
-          Jetzt für 1€ starten
+          Jetzt kostenlos starten
         </a>
       </div>
     </div>

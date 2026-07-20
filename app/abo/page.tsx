@@ -12,9 +12,9 @@ import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { StickyCheckoutBar } from "@/components/abo/StickyCheckoutBar";
 
 export const metadata: Metadata = {
-  title: "Monats-Kristalle Mitgliedschaft — Alle Infos & Jetzt für 1€ starten",
+  title: "Monats-Kristalle Mitgliedschaft — Alle Infos & Jetzt kostenlos starten",
   description:
-    "Alle Vorteile deiner Monats-Kristalle Mitgliedschaft auf einen Blick: doppelter Wert, automatische Gewinnspiel-Teilnahme, monatlich kündbar. Erster Monat für nur 1€.",
+    "Alle Vorteile deiner Monats-Kristalle Mitgliedschaft auf einen Blick: doppelter Wert, automatische Gewinnspiel-Teilnahme, monatlich kündbar. Erster Monat kostenlos.",
 };
 
 export default function AboPage() {

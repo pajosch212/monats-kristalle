@@ -21,9 +21,9 @@ export default function AgbPage() {
 
       <h2>§ 3 Vertragsschluss und Preise</h2>
       <p>
-        Der erste Monat wird zu einem symbolischen Betrag von 1€ berechnet. Ab der zweiten Lieferung
-        gilt der reguläre Preis von 24,99€ zzgl. 4,95€ Versand pro Zyklus. Mit Abschluss der
-        Bestellung über unseren Zahlungsdienstleister kommt der Mitgliedschaftsvertrag zustande.
+        Der erste Monat ist kostenlos (0€). Ab der zweiten Lieferung gilt der reguläre Preis von
+        28,70€ inkl. Versand pro Zyklus. Mit Abschluss der Bestellung über unseren
+        Zahlungsdienstleister kommt der Mitgliedschaftsvertrag zustande.
       </p>
 
       <h2>§ 4 Laufzeit und Kündigung</h2>

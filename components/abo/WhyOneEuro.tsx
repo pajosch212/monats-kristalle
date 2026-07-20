@@ -22,7 +22,7 @@ export function WhyOneEuro() {
             Ehrlich gefragt
           </div>
           <h2 className="font-display font-light text-3xl md:text-4xl text-ink leading-tight max-w-xl mx-auto">
-            „Warum macht ihr die erste Box für nur <em className="italic font-medium text-terracotta">1€</em>?
+            „Warum ist die erste Box <em className="italic font-medium text-terracotta">kostenlos</em>?
             Verliert ihr da nicht Geld?“
           </h2>
         </div>

@@ -18,7 +18,7 @@ const workSans = Work_Sans({
 export const metadata: Metadata = {
   title: "Monats-Kristalle — Jeden Monat ein neuer Kraftstein",
   description:
-    "Jeden Monat ein handverlesenes Kristallpaket direkt nach Hause. Erster Monat für nur 1€, danach 24,99€. Jederzeit kündbar.",
+    "Jeden Monat ein handverlesenes Kristallpaket direkt nach Hause. Erster Monat kostenlos, danach 28,70€. Jederzeit kündbar.",
 };
 
 export default function RootLayout({

@@ -47,8 +47,8 @@ export default function WiderrufsrechtPage() {
       <p>
         Zusätzlich zum gesetzlichen Widerrufsrecht räumen wir dir freiwillig eine verlängerte
         Bedenkzeit von 4 Wochen ab Erhalt deines ersten Pakets ein: In diesem Zeitraum kannst du deine
-        Mitgliedschaft ohne Angabe von Gründen kündigen und zahlst außer dem symbolischen ersten
-        Betrag von 1€ nichts weiter. Diese freiwillige Zusage erweitert deine Rechte, schränkt das
+        Mitgliedschaft ohne Angabe von Gründen kündigen. Der erste Monat ist kostenlos, du zahlst in
+        dieser Zeit also nichts. Diese freiwillige Zusage erweitert deine Rechte, schränkt das
         gesetzliche Widerrufsrecht oben aber nicht ein.
       </p>
     </LegalPage>

@@ -20,9 +20,9 @@ export function Pricing() {
             Nur für Neumitglieder
           </span>
           <div className="font-display text-6xl font-semibold text-ink leading-none">
-            1€<span className="text-2xl font-normal text-taupe"> · erster Monat</span>
+            0€<span className="text-2xl font-normal text-taupe"> · erster Monat</span>
           </div>
-          <div className="mt-3 text-taupe">danach 24,99€/Monat + 4,95€ Versand</div>
+          <div className="mt-3 text-taupe">danach 28,70€/Monat inkl. Versand</div>
           <div className="h-px bg-line my-7" />
           <ul className="flex flex-col gap-3.5 text-left mb-8">
             {features.map((f) => (
@@ -36,11 +36,11 @@ export function Pricing() {
             href="/monats-kristalle/abo/"
             className="w-full inline-flex justify-center items-center gap-2 bg-ink text-card font-semibold text-base py-4 rounded-full hover:bg-terracotta transition-colors duration-300"
           >
-            Jetzt für 1€ dein Paket sichern
+            Jetzt kostenlos dein Paket sichern
           </a>
           <p className="mt-5 text-xs leading-relaxed text-taupe/85">
             Nach Ablauf der 4-wöchigen Bedenkzeit verlängert sich deine Mitgliedschaft automatisch um jeweils
-            einen Monat zum Preis von 24,99€ zzgl. 4,95€ Versand, bis du kündigst. Kündigung ist
+            einen Monat zum Preis von 28,70€ inkl. Versand, bis du kündigst. Kündigung ist
             monatlich zum Ende der jeweiligen Laufzeit möglich.
           </p>
         </div>

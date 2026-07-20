@@ -4,7 +4,7 @@ import { CHECKOUT_URL } from "@/lib/checkout";
 import { GiftSelector } from "@/components/abo/GiftSelector";
 
 const checklist = [
-  { text: "1€ erster Monat, danach 24,99€", image: asset("/images/crystals/rote-painite.png") },
+  { text: "0€ erster Monat, danach 28,70€", image: asset("/images/crystals/rote-painite.png") },
   { text: "Doppelter Wert der Kristalle im Vergleich zum Einzelkauf", image: asset("/images/crystals/amethyst.png") },
   { text: "Automatische Teilnahme an der monatlichen Gewinnspielverlosung", image: asset("/images/crystals/labradorit.png") },
   { text: "Monatliches Guthaben für den Shop", image: asset("/images/crystals/rubin.png") },
@@ -19,10 +19,10 @@ export function CheckoutCard() {
     <section className="w-full px-4 md:px-6 py-16 md:py-20">
       <div className="max-w-lg mx-auto bg-card border-[1.5px] border-ink rounded-3xl p-8 md:p-10 text-center">
         <div className="flex items-baseline justify-center gap-3 mb-1">
-          <span className="font-display text-5xl font-semibold text-terracotta">1€</span>
+          <span className="font-display text-5xl font-semibold text-terracotta">0€</span>
         </div>
         <p className="text-taupe text-sm mb-6">
-          erster Monat · danach 24,99€/Monat + 4,95€ Versand · jederzeit kündbar
+          erster Monat · danach 28,70€/Monat inkl. Versand · jederzeit kündbar
         </p>
 
         <ul className="flex flex-col gap-4 text-left mb-8">
@@ -42,7 +42,7 @@ export function CheckoutCard() {
           href={CHECKOUT_URL}
           className="w-full inline-flex justify-center items-center gap-2 bg-ink text-card font-semibold text-base py-4 rounded-full hover:bg-terracotta transition-colors duration-300"
         >
-          Jetzt für 1€ starten
+          Jetzt kostenlos starten
         </a>
         <p className="mt-4 text-xs text-taupe/85">4 Wochen Bedenkzeit · monatlich kündbar</p>
       </div>
