@@ -20,14 +20,12 @@ export const metadata: Metadata = {
 export default function AboPage() {
   return (
     <>
+      <CrystalDrift count={22} />
       <NavBar />
       <main className="flex-1 pb-20">
-        <div className="relative">
-          <CrystalDrift count={9} />
-          <AboHero />
-          <HowItWorks />
-          <WhyOneEuro />
-        </div>
+        <AboHero />
+        <HowItWorks />
+        <WhyOneEuro />
         <PackageContents />
         <Faq />
         <CheckoutCard />
