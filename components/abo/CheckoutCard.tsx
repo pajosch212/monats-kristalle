@@ -4,7 +4,6 @@ import { CHECKOUT_URL } from "@/lib/checkout";
 import { GiftSelector } from "@/components/abo/GiftSelector";
 
 const checklist = [
-  { text: "0€ erster Monat, danach 28,70€", image: asset("/images/crystals/rote-painite.png") },
   { text: "Doppelter Wert der Kristalle im Vergleich zum Einzelkauf", image: asset("/images/crystals/amethyst.png") },
   { text: "Automatische Teilnahme an der monatlichen Gewinnspielverlosung", image: asset("/images/crystals/labradorit.png") },
   { text: "Monatliches Guthaben für den Shop", image: asset("/images/crystals/rubin.png") },

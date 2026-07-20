@@ -48,7 +48,7 @@ export function Hero() {
               <em className="italic font-medium text-terracotta">Kristalle</em> bei dir ein
             </h1>
 
-            <p className="relative text-taupe text-lg md:text-xl max-w-xl mb-9 leading-relaxed px-5 py-3 rounded-2xl bg-card/70 backdrop-blur-md">
+            <p className="relative text-ink text-lg md:text-xl max-w-xl mb-9 leading-relaxed px-6 py-4 rounded-2xl bg-card shadow-md shadow-ink/5 border border-line">
               Dein handverlesenes Paket mit mehreren Kristallen & besonderen Extras —
               automatisch jeden Monat in deinem Briefkasten.
             </p>
@@ -76,14 +76,14 @@ export function Hero() {
               href="/monats-kristalle/abo/"
               className="group relative inline-flex h-14 items-center justify-center gap-3 overflow-hidden rounded-full bg-ink px-10 text-base font-semibold text-card transition-all duration-300 hover:bg-terracotta hover:scale-105 active:scale-95 hover:ring-4 hover:ring-terracotta/20"
             >
-              <span className="relative z-10">Jetzt kostenlos dein Paket sichern</span>
+              <span className="relative z-10">Mehr Informationen anschauen</span>
               <ArrowRight className="h-5 w-5 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
 
             <p className="text-taupe text-sm mt-4">4 Wochen Bedenkzeit inklusive</p>
-            <div className="flex items-center gap-3 mt-6 text-sm text-taupe">
-              <span className="text-terracotta tracking-widest">★★★★★</span>
-              8,4/10 aus 81 Bewertungen
+            <div className="flex items-center gap-3 mt-6 text-lg text-ink font-medium">
+              <span className="text-terracotta tracking-widest text-2xl">★★★★★</span>
+              9,4/10 aus 310 Bewertungen
             </div>
           </div>
         </div>
