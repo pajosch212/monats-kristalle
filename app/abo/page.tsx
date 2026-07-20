@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function AboPage() {
   return (
-    <div className="relative flex flex-col flex-1">
-      <CrystalDrift count={12} />
+    <>
+      <CrystalDrift count={17} />
       <ReservationCountdownBar />
       <main className="flex-1 pb-20">
         <AboHero />
@@ -31,6 +31,6 @@ export default function AboPage() {
       </main>
       <Footer />
       <StickyCheckoutBar />
-    </div>
+    </>
   );
 }

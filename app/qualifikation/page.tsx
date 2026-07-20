@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
 export default function QualifikationPage() {
   return (
-    <div className="relative flex flex-col flex-1">
-      <CrystalDrift indices={[15, 18]} topOverrides={{ 0: 2, 1: 85 }} />
+    <>
+      <CrystalDrift indices={[15, 18]} topOverrides={{ 0: 2, 1: 90 }} />
       <NavBar />
       <main className="flex-1 px-4 md:px-6 py-10 md:py-16">
         <QualificationQuiz />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
