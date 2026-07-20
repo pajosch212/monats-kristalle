@@ -24,6 +24,10 @@ const crystals = [
   { src: asset("/images/crystals/fluorit.png"), side: "right" as const, size: 95, rotateStart: -11, rotateEnd: 344 },
   { src: asset("/images/crystals/proustit-rubinkristall.png"), side: "left" as const, size: 80, rotateStart: 12, rotateEnd: -339 },
   { src: asset("/images/crystals/turmalin.png"), side: "right" as const, size: 85, rotateStart: -10, rotateEnd: 348 },
+  { src: asset("/images/crystals/amethyst.png"), side: "left" as const, size: 85, rotateStart: 7, rotateEnd: -347 },
+  { src: asset("/images/crystals/labradorit.png"), side: "right" as const, size: 90, rotateStart: -12, rotateEnd: 336 },
+  { src: asset("/images/crystals/rubin.png"), side: "left" as const, size: 80, rotateStart: -9, rotateEnd: 351 },
+  { src: asset("/images/crystals/kristallspitze.png"), side: "right" as const, size: 90, rotateStart: 11, rotateEnd: -343 },
 ];
 
 // Kristalle stehen abwechselnd links/rechts in festem vh-Abstand (22vh), damit
@@ -46,7 +50,7 @@ export function CrystalDrift({ count = crystals.length }: { count?: number }) {
   const visible = crystals.slice(0, count);
   return (
     <div
-      className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40"
+      className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40 overflow-x-hidden"
       style={{ height: `${START_VH + visible.length * STEP_VH}vh` }}
       aria-hidden="true"
     >
