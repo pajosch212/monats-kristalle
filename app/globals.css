@@ -74,11 +74,16 @@ body {
    normalen Scrollen "hoch", ganz ohne JS) und drehen sich dabei über eine
    native CSS scroll-Timeline weiter — läuft auf dem Compositor-Thread,
    dadurch kein Hinterherhinken/Nachschnappen wie bei JS-Scroll-Handlern
-   auf Mobile (siehe CrystalDrift.tsx für die Begründung). */
+   auf Mobile (siehe CrystalDrift.tsx für die Begründung).
+   animation-range in einer festen Pixel-Distanz (nicht 0%–100% der ganzen
+   Seite!) sorgt dafür, dass die Bewegung auf jeder Seite gleich schnell
+   wirkt, unabhängig von der jeweiligen Gesamtlänge — sonst läuft dieselbe
+   Drehung/Verschiebung auf einer kurzen Seite viel schneller ab als auf
+   einer langen. */
 .crystal-float {
   animation: crystal-spin linear;
   animation-timeline: scroll(root);
-  animation-range: 0% 100%;
+  animation-range: 0px 3000px;
   will-change: transform;
 }
 
