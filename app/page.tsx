@@ -6,7 +6,7 @@ import { CrystalDrift } from "@/components/CrystalDrift";
 export default function Home() {
   return (
     <>
-      <CrystalDrift count={5} />
+      <CrystalDrift count={12} />
       <NavBar />
       <main className="flex-1">
         <Hero />
