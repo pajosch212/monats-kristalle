@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { NavBar } from "@/components/NavBar";
 import { CrystalDrift } from "@/components/CrystalDrift";
 import { ReservationCountdownBar } from "@/components/abo/ReservationCountdownBar";
 import { AboHero } from "@/components/abo/AboHero";
@@ -20,9 +19,8 @@ export const metadata: Metadata = {
 export default function AboPage() {
   return (
     <>
-      <CrystalDrift count={13} />
+      <CrystalDrift count={17} />
       <ReservationCountdownBar />
-      <NavBar />
       <main className="flex-1 pb-20">
         <AboHero />
         <HowItWorks />

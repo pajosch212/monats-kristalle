@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LivePulseDot } from "@/components/quiz/LivePulseDot";
 import { Confetti } from "@/components/quiz/Confetti";
 import { useCountdown } from "@/components/quiz/useCountdown";
@@ -19,6 +19,12 @@ export function QualificationQuiz() {
   const [step, setStep] = useState(0);
   const [evalProgress, setEvalProgress] = useState(0);
   const countdown = useCountdown(stage === "result");
+
+  useEffect(() => {
+    if (stage === "evaluating" || stage === "result") {
+      window.scrollTo({ top: 0 });
+    }
+  }, [stage]);
 
   function selectAnswer() {
     if (step < questions.length - 1) {
@@ -49,16 +55,16 @@ export function QualificationQuiz() {
           Nur noch {SPOTS_INTRO} Gratis-Kristallpakete verfügbar
         </div>
 
-        <div className="font-display font-semibold text-4xl md:text-5xl text-terracotta mb-4">OH NEIN! :(</div>
+        <div className="font-display font-semibold italic text-4xl md:text-5xl text-terracotta mb-4">OH NEIN! :(</div>
 
         <h1 className="font-display font-light text-2xl md:text-3xl text-ink leading-tight mb-4">
           Aufgrund der hohen Nachfrage müssen wir den Zugang zu unserem Neukundenangebot begrenzen
         </h1>
 
         <p className="text-taupe leading-relaxed mb-8">
-          Beantworte dieses kurze Quiz — nur 30 Sekunden. Es wird automatisch sofort danach geprüft, ob
-          wir dir eines der letzten Pakete reservieren können. Du erhältst in wenigen Sekunden
-          automatisiert die Antwort.
+          Bitte beantworte dieses kurze Quiz ehrlich. Es dauert nur 30 Sekunden. Du erhältst wenige
+          Sekunden nach Abschluss des Quiz sofort die Info, ob wir ein Gratis-Kristallpaket für dich
+          reservieren können.
         </p>
 
         <div className="mb-6 text-left">

@@ -46,8 +46,18 @@ const START_VH = 6;
 // erstreckt sich exakt über count*STEP_VH, um die ganze Seite unabhängig
 // von ihrer echten Länge mit Kristallen zu schmücken, ohne die Seite selbst
 // zu verlängern (er liegt "über" dem Content, nicht im Dokumentfluss).
-export function CrystalDrift({ count = crystals.length }: { count?: number }) {
-  const visible = crystals.slice(0, count);
+export function CrystalDrift({
+  count = crystals.length,
+  indices,
+  topOverrides,
+}: {
+  count?: number;
+  /** Explizite Auswahl von Kristall-Indizes statt der ersten `count`. */
+  indices?: number[];
+  /** Position im Array der sichtbaren Kristalle -> abweichender top-Wert in vh. */
+  topOverrides?: Record<number, number>;
+}) {
+  const visible = (indices ?? crystals.map((_, i) => i).slice(0, count)).map((idx) => crystals[idx]);
   return (
     <div
       className="crystal-drift pointer-events-none absolute inset-x-0 top-0 z-40 overflow-x-hidden"
@@ -56,11 +66,11 @@ export function CrystalDrift({ count = crystals.length }: { count?: number }) {
     >
       {visible.map((c, i) => (
         <div
-          key={c.src}
+          key={`${c.src}-${i}`}
           className="crystal-float absolute opacity-90"
           style={
             {
-              top: `${START_VH + i * STEP_VH}vh`,
+              top: `${topOverrides?.[i] ?? START_VH + i * STEP_VH}vh`,
               [c.side]: "2%",
               width: c.size,
               height: c.size,

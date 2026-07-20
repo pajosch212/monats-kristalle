@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function QualifikationPage() {
   return (
     <>
-      <CrystalDrift count={6} />
+      <CrystalDrift indices={[15, 18]} topOverrides={{ 0: 2, 1: 90 }} />
       <NavBar />
       <main className="flex-1 px-4 md:px-6 py-10 md:py-16">
         <QualificationQuiz />

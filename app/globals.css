@@ -96,8 +96,8 @@ body {
   to {
     /* zusätzlicher Eigenauftrieb nach oben, obendrauf auf das normale
        Mitscrollen, damit die Kristalle sichtbar eigenständig "schweben"
-       statt nur wie normaler Seiteninhalt vorbeizuziehen */
-    transform: translateY(-40vh) rotate(var(--rotate-end));
+       statt nur wie normaler Seiteninhalt vorbeizuziehen. -52vh = -40vh * 1.3 */
+    transform: translateY(-52vh) rotate(var(--rotate-end));
   }
 }
 
