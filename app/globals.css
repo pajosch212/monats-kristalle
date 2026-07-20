@@ -77,17 +77,20 @@ body {
    native CSS scroll-Timeline weiter — läuft auf dem Compositor-Thread,
    dadurch kein Hinterherhinken/Nachschnappen wie bei JS-Scroll-Handlern
    auf Mobile (siehe CrystalDrift.tsx für die Begründung).
-   view(root) statt scroll(root): view() bindet die Animation an die
-   Sichtbarkeit JEDES EINZELNEN Kristalls im Viewport, nicht an die globale
-   Scroll-Position des ganzen Dokuments. Mit scroll(root) + einer festen
-   animation-range (z.B. 0px–3000px) hatten auf langen Seiten (viele
-   Kristalle) alle Kristalle ihre Animation bereits nach den ersten
-   3000px Scrollstrecke komplett durchlaufen — nah beieinander stehende
-   Kristalle bewegten sich dadurch gleichzeitig durch denselben
-   Viewport-Ausschnitt und wirkten wie "vertauscht"/neu geladen. */
+   view() statt scroll(root): view() bindet die Animation an die
+   Sichtbarkeit JEDES EINZELNEN Kristalls im eigenen Scroll-Vorfahren,
+   nicht an die globale Scroll-Position des ganzen Dokuments. Mit
+   scroll(root) + einer festen animation-range (z.B. 0px–3000px) hatten
+   auf langen Seiten (viele Kristalle) alle Kristalle ihre Animation
+   bereits nach den ersten 3000px Scrollstrecke komplett durchlaufen —
+   nah beieinander stehende Kristalle bewegten sich dadurch gleichzeitig
+   durch denselben Viewport-Ausschnitt und wirkten wie "vertauscht"/neu
+   geladen. animation-range: cover läuft von "Element betritt Viewport"
+   bis "Element verlässt Viewport" — dadurch bewegt sich jeder Kristall
+   unabhängig von der Seitenlänge oder Anzahl anderer Kristalle. */
 .crystal-float {
   animation: crystal-spin linear;
-  animation-timeline: view(root);
+  animation-timeline: view();
   animation-range: cover;
   will-change: transform;
 }
