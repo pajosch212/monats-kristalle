@@ -11,6 +11,7 @@ const checklist = [
   { text: "Exklusiver Zugang zu Sonderangeboten und zur WhatsApp-Community", image: asset("/images/crystals/tuerkiser-kristall.png") },
   { text: "Jederzeit kündbar — keine Mindestlaufzeit", image: asset("/images/crystals/zitrin.png") },
   { text: "4 Wochen Bedenkzeit — völlig risikolos", image: asset("/images/crystals/aquamarin.png") },
+  { text: "Physische Erklärkarte zu jedem Kristall im Paket", image: asset("/images/crystals/rote-painite.png") },
 ];
 
 export function CheckoutCard() {
