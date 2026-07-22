@@ -24,7 +24,7 @@ export function StickyCheckoutBar() {
       <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
         <div className="hidden sm:block">
           <span className="font-display text-xl font-semibold text-terracotta">0€</span>
-          <span className="text-taupe/60 line-through text-sm ml-2">28,70€</span>
+          <span className="text-taupe/60 line-through text-sm ml-2">29,95€</span>
           <span className="text-taupe text-xs block sm:inline sm:ml-2">erster Monat</span>
         </div>
         <a

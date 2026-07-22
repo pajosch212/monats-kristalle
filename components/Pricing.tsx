@@ -22,7 +22,7 @@ export function Pricing() {
           <div className="font-display text-6xl font-semibold text-ink leading-none">
             0€<span className="text-2xl font-normal text-taupe"> · erster Monat</span>
           </div>
-          <div className="mt-3 text-taupe">danach 28,70€/Monat inkl. Versand</div>
+          <div className="mt-3 text-taupe">danach 29,95€/Monat inkl. Versand</div>
           <div className="h-px bg-line my-7" />
           <ul className="flex flex-col gap-3.5 text-left mb-8">
             {features.map((f) => (
@@ -40,7 +40,7 @@ export function Pricing() {
           </a>
           <p className="mt-5 text-xs leading-relaxed text-taupe/85">
             Nach Ablauf der 4-wöchigen Bedenkzeit verlängert sich deine Mitgliedschaft automatisch um jeweils
-            einen Monat zum Preis von 28,70€ inkl. Versand, bis du kündigst. Kündigung ist
+            einen Monat zum Preis von 29,95€ inkl. Versand, bis du kündigst. Kündigung ist
             monatlich zum Ende der jeweiligen Laufzeit möglich.
           </p>
         </div>

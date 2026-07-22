@@ -2,7 +2,7 @@ const steps = [
   { phase: "Phase 1", title: "Bestellen", text: "Du sicherst dir dein erstes Paket kostenlos — ganz ohne Risiko." },
   { phase: "Phase 2", title: "Ankommen", text: "Dein Paket erreicht dich per Post, liebevoll von Hand zusammengestellt." },
   { phase: "Phase 3", title: "4 Wochen entscheiden", text: "Du testest in Ruhe. Gefällt es dir nicht, kündigst du innerhalb von 4 Wochen ohne weitere Kosten." },
-  { phase: "Phase 4", title: "Zyklus wiederholt sich", text: "Ab Monat 2 zu 28,70€ inkl. Versand — jeden Monat neu, jederzeit kündbar." },
+  { phase: "Phase 4", title: "Zyklus wiederholt sich", text: "Ab Monat 2 zu 29,95€ inkl. Versand — jeden Monat neu, jederzeit kündbar." },
 ];
 
 export function Cycle() {

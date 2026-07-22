@@ -4,7 +4,7 @@ import { CHECKOUT_URL } from "@/lib/checkout";
 import { GiftSelector } from "@/components/abo/GiftSelector";
 
 const checklist = [
-  { text: "Doppelter Wert der Kristalle im Vergleich zum Einzelkauf", image: asset("/images/crystals/amethyst.png") },
+  { text: "70€ Gesamtwert der Kristalle in deinem Gratis-Paket", image: asset("/images/crystals/amethyst.png") },
   { text: "Automatische Teilnahme an der monatlichen Gewinnspielverlosung", image: asset("/images/crystals/labradorit.png") },
   { text: "Monatliches Guthaben für den Shop", image: asset("/images/crystals/rubin.png") },
   { text: "Geliefert in den Briefkasten — du musst nicht zu Hause sein", image: asset("/images/crystals/krokoit.png") },
@@ -21,7 +21,7 @@ export function CheckoutCard() {
           <span className="font-display text-5xl font-semibold text-terracotta">0€</span>
         </div>
         <p className="text-taupe text-sm mb-6">
-          erster Monat · danach 28,70€/Monat inkl. Versand · jederzeit kündbar
+          erster Monat · danach 29,95€/Monat inkl. Versand · jederzeit kündbar
         </p>
 
         <ul className="flex flex-col gap-4 text-left mb-8">

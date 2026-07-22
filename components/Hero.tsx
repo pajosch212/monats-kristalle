@@ -40,7 +40,7 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-terracotta opacity-70" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-terracotta" />
               </span>
-              Diesen Monat: 0€ statt 28,70€
+              Diesen Monat: 0€ statt 29,95€
             </div>
 
             <h1 className="font-display font-light text-5xl md:text-7xl lg:text-[5.2rem] tracking-tight text-ink mb-7 leading-[1.04]">
@@ -65,9 +65,9 @@ export function Hero() {
 
             <div className="flex items-baseline gap-4 flex-wrap justify-center mb-9">
               <span className="font-display text-5xl font-semibold text-terracotta">0€</span>
-              <span className="text-taupe/60 line-through text-lg">28,70€</span>
+              <span className="text-taupe/60 line-through text-lg">29,95€</span>
               <span className="text-taupe text-sm text-left leading-snug">
-                erster Monat · danach 28,70€/Monat
+                erster Monat · danach 29,95€/Monat
                 <br />inkl. Versand · jederzeit kündbar
               </span>
             </div>

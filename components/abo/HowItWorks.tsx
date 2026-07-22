@@ -12,7 +12,7 @@ const steps = [
   {
     number: "3",
     title: "Jeden Monat neu erleben",
-    text: "Ab dem zweiten Monat 28,70€ inkl. Versand — jederzeit monatlich kündbar.",
+    text: "Ab dem zweiten Monat 29,95€ inkl. Versand — jederzeit monatlich kündbar.",
   },
 ];
 
