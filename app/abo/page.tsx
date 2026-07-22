@@ -5,6 +5,7 @@ import { AboHero } from "@/components/abo/AboHero";
 import { HowItWorks } from "@/components/abo/HowItWorks";
 import { WhyOneEuro } from "@/components/abo/WhyOneEuro";
 import { PackageContents } from "@/components/abo/PackageContents";
+import { Testimonials } from "@/components/abo/Testimonials";
 import { CheckoutCard } from "@/components/abo/CheckoutCard";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/FinalCta";
@@ -30,6 +31,7 @@ export default function AboPage() {
         <HowItWorks />
         <WhyOneEuro />
         <PackageContents />
+        <Testimonials />
         <Faq />
         <CheckoutCard />
       </main>

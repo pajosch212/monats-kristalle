@@ -37,6 +37,11 @@ export function CheckoutCard() {
 
         <GiftSelector />
 
+        <div className="flex items-center justify-center gap-2 mb-3 text-sm">
+          <span className="text-terracotta tracking-tight">★★★★★</span>
+          <span className="text-taupe">9,4/10 aus 310 Bewertungen</span>
+        </div>
+
         <a
           href={CHECKOUT_URL}
           className="w-full inline-flex justify-center items-center gap-2 bg-ink text-card font-semibold text-base py-4 rounded-full hover:bg-terracotta transition-colors duration-300"
