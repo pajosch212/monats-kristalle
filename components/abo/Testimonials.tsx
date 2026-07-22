@@ -10,7 +10,7 @@ const testimonials = [
   },
   {
     name: "Sophie R.",
-    text: "Kündigen war unkompliziert erklärt, brauchte ich aber gar nicht — bin seit Monaten dabei und bleibe.",
+    text: "Meine Sammlung ist innerhalb weniger Monate richtig gewachsen — für das Geld bekommt man woanders nicht annähernd so viele Kristalle. Bin einfach nur happy jedes Mal.",
   },
 ];
 
