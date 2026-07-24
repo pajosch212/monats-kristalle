@@ -7,7 +7,7 @@ const steps = [
   {
     number: "2",
     title: "Paket erhalten & testen",
-    text: "Dein Paket wird per Post in deinen Briefkasten zugestellt — du musst dafür nicht zu Hause sein. 14 Tage Zeit, in Ruhe zu entscheiden.",
+    text: "Dein Paket wird per Post in deinen Briefkasten zugestellt — du musst dafür nicht zu Hause sein. 4 Wochen Zeit, in Ruhe zu entscheiden.",
   },
   {
     number: "3",

@@ -36,8 +36,8 @@ export default function AgbPage() {
       <p>
         Die Mitgliedschaft verlängert sich automatisch um jeweils einen weiteren Zyklus (28 Tage), bis
         sie gekündigt wird. Eine Kündigung ist jederzeit zum Ende des laufenden Zyklus möglich, ohne
-        Angabe von Gründen und ohne Mindestlaufzeit. Für die Kündigungsmöglichkeiten in den ersten 14
-        Tagen gilt zusätzlich unsere Bedenkzeit-Regelung, siehe{" "}
+        Angabe von Gründen und ohne Mindestlaufzeit. Für die Kündigungsmöglichkeiten in den ersten 4
+        Wochen gilt zusätzlich unsere freiwillige Bedenkzeit-Regelung, siehe{" "}
         <a href="/widerrufsrecht/">Widerrufsrecht</a>.
       </p>
 
