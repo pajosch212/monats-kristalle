@@ -45,7 +45,7 @@ export default function WiderrufsrechtPage() {
 
       <h2>Deine 2-Wochen-Bedenkzeit</h2>
       <p>
-        Du hast ab Erhalt deines ersten Pakets 2 Wochen Zeit, deine Mitgliedschaft ohne Angabe von
+        Du hast ab Erhalt deines ersten Pakets 14 Tage Zeit, deine Mitgliedschaft ohne Angabe von
         Gründen zu kündigen — das entspricht der gesetzlichen Widerrufsfrist. Der erste Monat ist
         kostenlos, du zahlst in dieser Zeit also nichts. Diese Bedenkzeit erweitert deine Rechte,
         schränkt das gesetzliche Widerrufsrecht oben aber nicht ein.
