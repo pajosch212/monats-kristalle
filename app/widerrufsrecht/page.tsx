@@ -43,13 +43,12 @@ export default function WiderrufsrechtPage() {
         gesetzlichen Widerrufs erforderlich.
       </p>
 
-      <h2>Unsere freiwillige 4-Wochen-Bedenkzeit</h2>
+      <h2>Deine 2-Wochen-Bedenkzeit</h2>
       <p>
-        Zusätzlich zum gesetzlichen Widerrufsrecht räumen wir dir freiwillig eine verlängerte
-        Bedenkzeit von 4 Wochen ab Erhalt deines ersten Pakets ein: In diesem Zeitraum kannst du deine
-        Mitgliedschaft ohne Angabe von Gründen kündigen. Der erste Monat ist kostenlos, du zahlst in
-        dieser Zeit also nichts. Diese freiwillige Zusage erweitert deine Rechte, schränkt das
-        gesetzliche Widerrufsrecht oben aber nicht ein.
+        Du hast ab Erhalt deines ersten Pakets 2 Wochen Zeit, deine Mitgliedschaft ohne Angabe von
+        Gründen zu kündigen — das entspricht der gesetzlichen Widerrufsfrist. Der erste Monat ist
+        kostenlos, du zahlst in dieser Zeit also nichts. Diese Bedenkzeit erweitert deine Rechte,
+        schränkt das gesetzliche Widerrufsrecht oben aber nicht ein.
       </p>
     </LegalPage>
   );

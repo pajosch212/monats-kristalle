@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Wie funktioniert die 4-wöchige Bedenkzeit?",
-    a: "Dein erstes Paket kommt kostenlos zu dir nach Hause. Ab Erhalt hast du 4 Wochen Zeit, in Ruhe zu testen. Gefällt es dir nicht, kündigst du innerhalb dieser Frist und zahlst nichts weiter.",
+    q: "Wie funktioniert die 2-wöchige Bedenkzeit?",
+    a: "Dein erstes Paket kommt kostenlos zu dir nach Hause. Ab Erhalt hast du 2 Wochen Zeit, in Ruhe zu testen. Gefällt es dir nicht, kündigst du innerhalb dieser Frist und zahlst nichts weiter.",
   },
   {
     q: "Wie kündige ich meine Mitgliedschaft?",

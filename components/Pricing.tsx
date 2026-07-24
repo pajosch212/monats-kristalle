@@ -1,6 +1,6 @@
 const features = [
   "Handverlesenes Kristallpaket, jeden Monat neu",
-  "4 Wochen Bedenkzeit ab Erhalt des ersten Pakets",
+  "2 Wochen Bedenkzeit ab Erhalt des ersten Pakets",
   "Automatische Teilnahme an der monatlichen Auslosung",
   "Jederzeit monatlich kündbar",
 ];
@@ -39,7 +39,7 @@ export function Pricing() {
             Jetzt kostenlos dein Paket sichern
           </a>
           <p className="mt-5 text-xs leading-relaxed text-taupe/85">
-            Nach Ablauf der 4-wöchigen Bedenkzeit verlängert sich deine Mitgliedschaft automatisch um jeweils
+            Nach Ablauf der 2-wöchigen Bedenkzeit verlängert sich deine Mitgliedschaft automatisch um jeweils
             einen Monat zum Preis von 29,95€ inkl. Versand, bis du kündigst. Kündigung ist
             monatlich zum Ende der jeweiligen Laufzeit möglich.
           </p>
