@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CHECKOUT_URL } from "@/lib/checkout";
+import { CHECKOUT_URL, trackCheckoutClick } from "@/lib/checkout";
 
 export function StickyCheckoutBar() {
   const [visible, setVisible] = useState(false);
@@ -29,6 +29,7 @@ export function StickyCheckoutBar() {
         </div>
         <a
           href={CHECKOUT_URL}
+          onClick={trackCheckoutClick}
           className="flex-1 sm:flex-none text-center inline-flex justify-center items-center gap-2 bg-ink text-card font-semibold text-sm py-3 px-8 rounded-full hover:bg-terracotta transition-colors duration-300"
         >
           Jetzt kostenlos starten

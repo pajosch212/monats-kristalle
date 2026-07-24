@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { asset } from "@/lib/assets";
-import { CHECKOUT_URL } from "@/lib/checkout";
+import { CHECKOUT_URL, trackCheckoutClick } from "@/lib/checkout";
 import { GiftSelector } from "@/components/abo/GiftSelector";
 
 const checklist = [
@@ -45,6 +47,7 @@ export function CheckoutCard() {
 
         <a
           href={CHECKOUT_URL}
+          onClick={trackCheckoutClick}
           className="w-full inline-flex justify-center items-center gap-2 bg-ink text-card font-semibold text-base py-4 rounded-full hover:bg-terracotta transition-colors duration-300"
         >
           Jetzt kostenlos starten
