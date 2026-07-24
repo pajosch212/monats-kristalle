@@ -6,9 +6,11 @@ export const CHECKOUT_URL = "https://buy.stripe.com/fZu7sKbcdfoT53f380gbm05";
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    pintrk?: (...args: unknown[]) => void;
   }
 }
 
 export function trackCheckoutClick() {
   window.gtag?.("event", "click_checkout");
+  window.pintrk?.("track", "checkout", { value: 29.95, order_quantity: 1, currency: "EUR" });
 }
