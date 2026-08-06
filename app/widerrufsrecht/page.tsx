@@ -20,7 +20,7 @@ export default function WiderrufsrechtPage() {
 
       <p>
         Um dein Widerrufsrecht auszuüben, musst du uns (Paul Schiek, Praunheimer Landstraße 152, 60488
-        Frankfurt am Main, E-Mail: monatskristall@gmail.com) mittels einer eindeutigen Erklärung (z. B.
+        Frankfurt am Main, E-Mail: info@monats-kristalle.de) mittels einer eindeutigen Erklärung (z. B.
         ein mit der Post versandter Brief oder eine E-Mail) über deinen Entschluss, diesen Vertrag zu
         widerrufen, informieren. Zur Wahrung der Widerrufsfrist reicht es aus, dass du die Mitteilung
         über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absendest.

@@ -17,7 +17,7 @@ export default function KontaktPage() {
       </p>
 
       <p>
-        E-Mail: <a href="mailto:monatskristall@gmail.com">monatskristall@gmail.com</a>
+        E-Mail: <a href="mailto:info@monats-kristalle.de">info@monats-kristalle.de</a>
         <br />
         Telefon: 015560111372
       </p>

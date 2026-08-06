@@ -14,7 +14,7 @@ export default function DatenschutzPage() {
         <br />
         60488 Frankfurt am Main
         <br />
-        E-Mail: <a href="mailto:monatskristall@gmail.com">monatskristall@gmail.com</a>
+        E-Mail: <a href="mailto:info@monats-kristalle.de">info@monats-kristalle.de</a>
       </p>
 
       <h2>2. Hosting</h2>

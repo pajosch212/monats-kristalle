@@ -20,7 +20,7 @@ export default function ImpressumPage() {
       <p>
         Telefon: 015560111372
         <br />
-        E-Mail: <a href="mailto:monatskristall@gmail.com">monatskristall@gmail.com</a>
+        E-Mail: <a href="mailto:info@monats-kristalle.de">info@monats-kristalle.de</a>
       </p>
 
       <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
