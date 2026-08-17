@@ -1,6 +1,8 @@
-// Custom Domain liegt auf Root — kein basePath-Präfix mehr nötig
-// (siehe next.config.ts). Bleibt als Funktion bestehen, damit alle
-// bisherigen asset(...)-Aufrufe im Code unverändert weiter funktionieren.
+// Backup-Deploy läuft unter /monats-kristalle (siehe next.config.ts
+// basePath) statt auf der Domain-Root, daher hier mit demselben Präfix
+// versehen.
+const basePath = "/monats-kristalle";
+
 export function asset(path: string) {
-  return path;
+  return `${basePath}${path}`;
 }
